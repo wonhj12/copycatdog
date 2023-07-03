@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 1284167401}
   - component: {fileID: 1284167400}
   - component: {fileID: 1284167399}
+  - component: {fileID: 1284167404}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -247,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9639a12952055f849bd2d5f2f700b9ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMoveSpeed: 10
+  playerMoveSpeed: 5
   inputTime:
   - 0
   - 0
@@ -382,6 +383,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1284167404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284167398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a3c1bbdb92860a498c40661687d27b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRiding: 0
+  isDamaged: 0
+  isAlive: 1
+  characterName: "\uBC30\uCC0C"
+  currentBubble: 1
+  carryBubble: 1
+  maxBubble: 6
+  currentAtkLength: 1
+  maxAtkLength: 7
+  currentSpeed: 5
+  maxSpeed: 9
+  Bubble: {fileID: 5817794975239032692, guid: 9e29d515d49cf7545a173924871ab4b5, type: 3}
 --- !u!1 &1811295111
 GameObject:
   m_ObjectHideFlags: 0

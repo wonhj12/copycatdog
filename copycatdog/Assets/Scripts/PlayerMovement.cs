@@ -144,6 +144,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        this.transform.Translate(movementInput.normalized * playerMoveSpeed);
+        this.transform.Translate(movementInput.normalized * playerMoveSpeed * 0.016f);
     }
 }
