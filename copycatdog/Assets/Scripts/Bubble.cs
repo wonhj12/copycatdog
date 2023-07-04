@@ -4,25 +4,53 @@ using UnityEngine;
 
 public class Bubble : MonoBehaviour
 {
-    //폭발하기까지 걸리는 시간
+    //시간 관련 변수들
+    [Header("시간 관련 변수들")]
     public float explodeTime;
 
+    //길이, 방향 관련 변수들
+    [Header("길이, 방향 관련 변수들")]
+    public int Length;
+
     //필요한 컴포넌트
-    public GameObject Water;        //물줄기
+    [Header("필요한 컴포넌트")]
+    public GameObject Water;
+    [SerializeField] private Collider2D col;
 
     private void Start()
     {
+        col = GetComponent<Collider2D>();
+        col.isTrigger = true;
         StartCoroutine(WaterSplash());
         Destroy(this.gameObject, explodeTime);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            col.isTrigger = false;
+        }
     }
 
     private IEnumerator WaterSplash()
     {
         yield return new WaitForSeconds(explodeTime - 0.2f);
 
-        Instantiate(Water, new Vector2(this.transform.position.x + 1, this.transform.position.y), Quaternion.identity);
-        Instantiate(Water, new Vector2(this.transform.position.x - 1, this.transform.position.y), Quaternion.identity);
-        Instantiate(Water, new Vector2(this.transform.position.x, this.transform.position.y + 1), Quaternion.identity);
-        Instantiate(Water, new Vector2(this.transform.position.x, this.transform.position.y - 1), Quaternion.identity);
+        GameObject Bubble_Up = Instantiate(Water, new Vector2(this.transform.position.x, this.transform.position.y + 1), Quaternion.identity);
+        Bubble_Up.GetComponent<Water>().remain_Length = Length - 1;
+        Bubble_Up.GetComponent<Water>().Direction = (int)Dir.up;
+
+        GameObject Bubble_Down = Instantiate(Water, new Vector2(this.transform.position.x, this.transform.position.y - 1), Quaternion.identity);
+        Bubble_Down.GetComponent<Water>().remain_Length = Length - 1;
+        Bubble_Down.GetComponent<Water>().Direction = (int)Dir.down;
+
+        GameObject Bubble_Left = Instantiate(Water, new Vector2(this.transform.position.x - 1, this.transform.position.y), Quaternion.identity);
+        Bubble_Left.GetComponent<Water>().remain_Length = Length - 1;
+        Bubble_Left.GetComponent<Water>().Direction = (int)Dir.left;
+
+        GameObject Bubble_Right = Instantiate(Water, new Vector2(this.transform.position.x + 1, this.transform.position.y), Quaternion.identity);
+        Bubble_Right.GetComponent<Water>().remain_Length = Length - 1;
+        Bubble_Right.GetComponent<Water>().Direction = (int)Dir.right;
     }
 }

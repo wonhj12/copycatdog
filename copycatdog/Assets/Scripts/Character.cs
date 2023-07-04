@@ -11,7 +11,7 @@ public class Character : MonoBehaviour
     [Header("상태 관련 변수")]
     public bool isRiding;
     public bool isDamaged;
-    public bool isAlive;
+    public bool isAlive = true;
 
 
     //캐릭터 속성
@@ -68,10 +68,10 @@ public class Character : MonoBehaviour
             Instantiate(Bubble, AttackLocation, Quaternion.identity);
 
             //물풍선 프리팹을 Instantiate하고 현재 캐릭터가 만들 수 있는 물풍선의 길이를 전달해주는 코드
-            /*
-            GameObject bubbleObject = Instantiate(Resources.Load("Prefabs/Bubble")) as GameObject;
+            
+            GameObject bubbleObject = Instantiate(Bubble, AttackLocation, Quaternion.identity);
             bubbleObject.GetComponent<Bubble>().Length = currentAtkLength;
-            */
+            
 
             //물풍선 사용
             currentBubble -= 1;
@@ -121,5 +121,12 @@ public class Character : MonoBehaviour
         //아이템 기능 개발 후 적용
         //아이템 효과들을 모아놓은 스크립트 호출
         Debug.Log("Item Used");
+    }
+
+
+    public void Dead()
+    {
+        Debug.Log("Died");
+        isAlive = false;
     }
 }
