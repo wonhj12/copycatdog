@@ -72,10 +72,10 @@ public class Water : MonoBehaviour
         yield return null;
     }
 
-    private void OnTriggerStay(Collider col)
-    {
-        if(col.tag == "Player")
-            col.GetComponent<PlayerController>().Dead();
-    }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+            collision.GetComponent<PlayerController>().Damage();
+    }
 }

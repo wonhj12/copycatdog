@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     //인스펙터 창에 보이는 것들
     [Header("플레이어 속도")]
-    [SerializeField] private float playerMoveSpeed;
+    public float playerMoveSpeed;
 
     [Header("상하좌우키가 눌린 시간")]
     [SerializeField] private float[] inputTime = new float[4];
@@ -125,21 +125,98 @@ public class PlayerMovement : MonoBehaviour
         switch (currentInputDir)
         {
             case 0:
+                //상
+                //if ()
                 movementInput = Vector2.up;
                 break;
             case 1:
+                //하
                 movementInput = Vector2.down;
                 break;
             case 2:
+                //좌
                 movementInput = Vector2.left;
                 break;
             case 3:
+                //우
                 movementInput = Vector2.right;
                 break;
             default:
                 movementInput = Vector2.zero;
                 break;
         }
+
+        Debug.DrawRay(transform.position, new Vector3(movementInput.normalized.x, movementInput.normalized.y, 0), new Color(0, 1, 0));
+
+        if(currentInputDir < 2)
+        {
+            //벽과 닿는 중이라면
+
+            RaycastHit2D hit_1 = Physics2D.Raycast(new Vector2(transform.position.x - 0.4f, transform.position.y), movementInput.normalized, 0.51f, LayerMask.GetMask("Wall"));
+            RaycastHit2D hit_2 = Physics2D.Raycast(new Vector2(transform.position.x + 0.4f, transform.position.y), movementInput.normalized, 0.51f, LayerMask.GetMask("Wall"));
+
+            if(hit_1.collider != null || hit_2.collider != null)
+            {
+
+                //상하 움직임이라면
+                RaycastHit2D hit_l = Physics2D.Raycast(new Vector2(transform.position.x - 0.45f, transform.position.y), movementInput.normalized, 0.51f, LayerMask.GetMask("Wall"));
+                RaycastHit2D hit_r = Physics2D.Raycast(new Vector2(transform.position.x + 0.45f, transform.position.y), movementInput.normalized, 0.51f, LayerMask.GetMask("Wall"));
+
+                if (hit_l.collider != null && hit_r.collider != null)
+                {
+                    //플레이어가 닿고 있는 벽의 좌, 우측 벽이 모두 있는 경우 정지
+                    Debug.Log("상하 움직임 막힘");
+                    movementInput = Vector2.zero;
+                }
+                else if (hit_r.collider == null)
+                {
+                    //플레이어가 닿고있는 벽의 우측 벽이 없을 경우 오른쪽으로 우선 이동
+                    Debug.Log("오른쪽");
+                    movementInput = Vector2.right;
+                }
+                else
+                {
+                    //플레이어가 닿고있는 벽의 좌측 벽이 없을 경우 왼쪽으로 우선 이동
+                    Debug.Log("왼쪽");
+                    movementInput = Vector2.left;
+                }
+            }
+        }
+        else if(currentInputDir < 5)
+        {
+            //벽과 닿는 중이라면
+
+            RaycastHit2D hit_1 = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 0.4f), movementInput.normalized, 0.51f, LayerMask.GetMask("Wall"));
+            RaycastHit2D hit_2 = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.4f), movementInput.normalized, 0.51f, LayerMask.GetMask("Wall"));
+
+            if (hit_1.collider != null || hit_2.collider != null)
+            {
+
+                //좌우 움직임이라면
+                RaycastHit2D hit_u = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 0.45f), movementInput.normalized, 0.51f, LayerMask.GetMask("Wall"));
+                RaycastHit2D hit_d = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.45f), movementInput.normalized, 0.51f, LayerMask.GetMask("Wall"));
+
+                if (hit_u.collider != null && hit_d.collider != null)
+                {
+                    //플레이어가 닿고 있는 벽의 상, 하단 벽이 모두 있는 경우 정지
+                    Debug.Log("좌우 움직임 막힘");
+                    movementInput = Vector2.zero;
+                }
+                else if (hit_d.collider == null)
+                {
+                    //플레이어가 닿고있는 벽의 하단 벽이 없을 경우 아래쪽으로 우선 이동
+                    Debug.Log("아래쪽");
+                    movementInput = Vector2.down;
+                }
+                else
+                {
+                    //플레이어가 닿고있는 벽의 상단 벽이 없을 경우 위쪽으로 우선 이동
+                    Debug.Log("위쪽");
+                    movementInput = Vector2.up;
+                }
+            }
+        }
+        
     }
 
     private void FixedUpdate()

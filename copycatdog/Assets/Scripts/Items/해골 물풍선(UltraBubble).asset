@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b92f09cf4d76c0a4b93f4bdd2156399f, type: 3}
+  m_Name: "\uD574\uACE8 \uBB3C\uD48D\uC120(UltraBubble)"
+  m_EditorClassIdentifier: 
+  itemName: "\uD574\uACE8 \uBB3C\uD48D\uC120"
+  itemDesc: "\uBB3C\uD48D\uC120\uC758 \uBB3C\uC904\uAE30\uC758 \uAE38\uC774\uAC00
+    \uD574\uB2F9 \uCE90\uB9AD\uD130\uC758 \uCD5C\uB300\uCE58\uAE4C\uC9C0 \uD55C\uBC88\uC5D0
+    \uC62C\uB77C\uAC04\uB2E4."
+  itemType: 0
+  itemPrefab: {fileID: 0}
