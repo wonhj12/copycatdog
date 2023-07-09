@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4488072787070128297}
   - component: {fileID: 5892667650915763873}
   - component: {fileID: 8884128656635381482}
-  - component: {fileID: 1995143088722306145}
+  - component: {fileID: 4864834107795664014}
   - component: {fileID: 5561055771098150262}
   m_Layer: 0
   m_Name: Bubble
@@ -100,9 +100,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeTime: 3
+  Length: 0
   Water: {fileID: 4944474734684742207, guid: 82ff80c27436e7a49aa2755fdcbb02d3, type: 3}
---- !u!58 &1995143088722306145
-CircleCollider2D:
+  col: {fileID: 0}
+--- !u!61 &4864834107795664014
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -134,8 +136,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!50 &5561055771098150262
 Rigidbody2D:
   serializedVersion: 4

@@ -64,14 +64,9 @@ public class Character : MonoBehaviour
             //물풍선 설치 위치 계산
             Vector2 AttackLocation = new Vector2(Mathf.Round(this.transform.position.x), Mathf.Round(this.transform.position.y));
 
-            //임시로 작성한 코드
-            Instantiate(Bubble, AttackLocation, Quaternion.identity);
-
-            //물풍선 프리팹을 Instantiate하고 현재 캐릭터가 만들 수 있는 물풍선의 길이를 전달해주는 코드
-            
+            //물풍선 프리팹을 Instantiate하고 현재 캐릭터가 만들 수 있는 물풍선의 길이를 전달해주는 코드\
             GameObject bubbleObject = Instantiate(Bubble, AttackLocation, Quaternion.identity);
             bubbleObject.GetComponent<Bubble>().Length = currentAtkLength;
-            
 
             //물풍선 사용
             currentBubble -= 1;
