@@ -15,27 +15,57 @@ public class Bubble : MonoBehaviour
     //필요한 컴포넌트
     [Header("필요한 컴포넌트")]
     public GameObject Water;
-    [SerializeField] private Collider2D col;
+    public Character player;
+    [SerializeField] private BoxCollider2D box_Col;
+    [SerializeField] private GameObject circle_Col;
+
+    public bool isPlayerIn = true;
 
     private void Start()
     {
-        col = GetComponent<Collider2D>();
-        col.isTrigger = true;
+        box_Col = GetComponent<BoxCollider2D>();
+
+        box_Col.enabled = false;
+        circle_Col.SetActive(true);
+
         StartCoroutine(WaterSplash());
         Destroy(this.gameObject, explodeTime);
     }
 
+    
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {
-            col.isTrigger = false;
+            box_Col.isTrigger = false;
+            isPlayerIn = false;
+
+            Debug.Log("박스에서 벗어남");
         }
     }
+    
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            isPlayerIn = true;
+            player = collision.GetComponent<Character>();       //닿아있는 플레이어의 캐릭터 오브젝트 가져오기
+        }
+    }
+
 
     private IEnumerator WaterSplash()
     {
         yield return new WaitForSeconds(explodeTime - 0.2f);
+
+
+        if (isPlayerIn)
+        {
+            Debug.Log(isPlayerIn);
+            player.Damage();
+        }
+
 
         GameObject Bubble_Up = Instantiate(Water, new Vector2(this.transform.position.x, this.transform.position.y + 1), Quaternion.identity);
         Bubble_Up.GetComponent<Water>().remain_Length = Length - 1;

@@ -40,6 +40,7 @@ public class Character : MonoBehaviour
     //필요한 컴포넌트
     [Header("필요한 컴포넌트")]
     private PlayerMovement playerMovement;
+    [SerializeField] private Item currentItem;
     //물풍선 프리팹
     public GameObject Bubble;
 
@@ -173,6 +174,7 @@ public class Character : MonoBehaviour
                 //이 함수도 데이터베이스의 ItemDatabase 스크립트의 Use함수를 호출하고, Use함수에서 플레이어에게 효과를 부여할 것.
                 //그래야 플레이어가 늘어나도 하나의 데이터베이스만을 통해 효율적으로 효과를 제공할 수 있음.
                 Debug.Log(inventory[0] + "Item Used");
+
                 inventory[0] = inventory[1];
                 inventory[1] = 999;
             }

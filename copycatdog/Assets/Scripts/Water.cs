@@ -75,7 +75,11 @@ public class Water : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-            collision.GetComponent<PlayerController>().Damage();
+        if (collision.CompareTag("PlayerHitBox"))
+        {
+            Debug.Log("Hit");
+            collision.GetComponentInParent<Character>().Damage();
+
+        }
     }
 }
