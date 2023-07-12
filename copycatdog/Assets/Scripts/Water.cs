@@ -79,7 +79,12 @@ public class Water : MonoBehaviour
         {
             Debug.Log("Hit");
             collision.GetComponentInParent<Character>().Damage();
+        }
 
+        if (collision.CompareTag("Item"))
+        {
+            Debug.Log(collision.name);
+            Destroy(collision.gameObject);
         }
     }
 }

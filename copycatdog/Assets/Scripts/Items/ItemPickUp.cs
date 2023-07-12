@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemPickUp : MonoBehaviour
 {
     public Item currentItem;
-
+    public GameObject ItemObject;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,7 +14,7 @@ public class ItemPickUp : MonoBehaviour
             if (collision.GetComponent<Character>().ItemAcceptence())
             {
                 collision.GetComponent<Character>().GetItem(currentItem);
-                Destroy(this.gameObject);
+                Destroy(ItemObject);
             }
         }
     }

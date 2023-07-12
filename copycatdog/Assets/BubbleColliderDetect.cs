@@ -20,7 +20,7 @@ public class BubbleColliderDetect : MonoBehaviour
         if (collision.tag == "Player")
         {
             Bubble.GetComponent<BoxCollider2D>().enabled = true;
-            //Bubble.GetComponent<Bubble>().isPlayerIn = false;
+            Bubble.GetComponent<Bubble>().isPlayerIn = false;
 
             Debug.Log("원에서 벗어남");
 
