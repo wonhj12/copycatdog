@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b92f09cf4d76c0a4b93f4bdd2156399f, type: 3}
-  m_Name: "\uC2A4\uCF00\uC774\uD2B8"
+  m_Name: "\uC6B4\uB3D9\uD654"
   m_EditorClassIdentifier: 
-  itemName: "\uC2A4\uCF00\uC774\uD2B8"
-  itemDesc: "\uCE90\uB9AD\uD130\uC758 \uC18D\uB3C4\uAC00 \uD55C \uCE78 \uBE68\uB77C\uC9C4\uB2E4."
-  itemType: 1
+  itemName: "\uC6B4\uB3D9\uD654"
+  itemDesc: "\uBB3C\uD48D\uC120\uC744 \uBC00 \uC218 \uC788\uB2E4."
+  itemType: 0
   itemPrefab: {fileID: 0}

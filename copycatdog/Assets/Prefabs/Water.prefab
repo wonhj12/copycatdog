@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DelayTime: 0.01
-  DestroyTime: 0.3
+  DestroyTime: 0.6
   remain_Length: 0
   Direction: 0
   WaterPrefab: {fileID: 4944474734684742207}

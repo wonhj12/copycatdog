@@ -86,5 +86,16 @@ public class Water : MonoBehaviour
             Debug.Log(collision.name);
             Destroy(collision.gameObject);
         }
+
+        if (collision.CompareTag("Bubble"))
+        {
+            //이미 물풍선이 터진상태가 아니라면
+            if(collision.GetComponent<Bubble>().isExploded == false)
+            {
+                collision.GetComponent<Bubble>().StopAllCoroutines();
+
+                collision.GetComponent<Bubble>().StartCoroutine(collision.GetComponent<Bubble>().WaterSplash_Immediate());
+            }
+        }
     }
 }

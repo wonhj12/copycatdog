@@ -6,11 +6,11 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //필요한 컴포넌트
-    private Rigidbody2D playerRb;
     private Vector2 movementInput;
 
     //인스펙터 창에 보이는 것들
     [Header("플레이어 속도")]
+    public float maxPlayerMoveSpeed;
     public float playerMoveSpeed;
 
     [Header("상하좌우키가 눌린 시간")]
@@ -21,7 +21,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        playerRb = GetComponent<Rigidbody2D>();
         inputTime[0] = 0;
         inputTime[1] = 0;
         inputTime[2] = 0;
@@ -126,7 +125,6 @@ public class PlayerMovement : MonoBehaviour
         {
             case 0:
                 //상
-                //if ()
                 movementInput = Vector2.up;
                 break;
             case 1:
