@@ -19,7 +19,7 @@ public class Character : MonoBehaviour
     [Header("캐릭터 속성")]
     public string characterName;
 
-    [SerializeField] protected int currentBubble;   //현재 맵에 설치 가능한 물풍선 개수
+    public int currentBubble;   //현재 맵에 설치 가능한 물풍선 개수
     public int carryBubble;     //현재 들고다닐 수 있는 최대 물풍선 개수
     public int maxBubble;       //최대로 들고다닐 수 있는 물풍선의 개수
                                 //currentBubble은 항상 carryBubble 이하임
@@ -173,6 +173,9 @@ public class Character : MonoBehaviour
                 //데이터베이스 오브젝트에는 각각의 키 값에 아이템들이 할당되어 있을 예정.
                 //이 함수도 데이터베이스의 ItemDatabase 스크립트의 Use함수를 호출하고, Use함수에서 플레이어에게 효과를 부여할 것.
                 //그래야 플레이어가 늘어나도 하나의 데이터베이스만을 통해 효율적으로 효과를 제공할 수 있음.
+
+                ItemDatabase.Use(inventory[0], this.GetComponent<Character>());
+
                 Debug.Log(inventory[0] + "Item Used");
 
                 inventory[0] = inventory[1];
