@@ -21,6 +21,7 @@ public class BubbleColliderDetect : MonoBehaviour
         {
             Bubble.GetComponent<BoxCollider2D>().enabled = true;
             Bubble.GetComponent<Bubble>().isPlayerIn = false;
+            collision.GetComponent<Character>().bubble = null;
 
             this.gameObject.SetActive(false);
         }

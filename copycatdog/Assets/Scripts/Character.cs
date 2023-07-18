@@ -13,6 +13,8 @@ public class Character : MonoBehaviour
     public bool isDamaged = false;
     public bool isAlive = true;
     public bool isBubbleDeployed = false;
+    public bool isThrowAvailable = false;
+    public Bubble bubble;
 
 
     //캐릭터 속성
@@ -32,6 +34,7 @@ public class Character : MonoBehaviour
     public float maxSpeed;          //최대 이동속도
 
     protected float bubbleExplodeTime;
+
 
     [Header("아이템 인벤토리")]
     [SerializeField] private int[] inventory = new int[2];
@@ -69,7 +72,6 @@ public class Character : MonoBehaviour
             }
 
             UseItem();
-
         }
     }
 
@@ -77,14 +79,62 @@ public class Character : MonoBehaviour
     protected void Attack()
     {
         //물풍선을 더 설치할 수 있다면, 그리고 그 자리에 배치된 물풍선이 없다면
-        if(currentBubble > 0 && !isBubbleDeployed)
+        if(currentBubble > 0)
+        {
+            if (!isBubbleDeployed)
+            {
+                //물풍선 설치 위치 계산
+                Vector2 AttackLocation = new Vector2(Mathf.Round(this.transform.position.x), Mathf.Round(this.transform.position.y));
+
+                //물풍선 프리팹을 Instantiate하고 현재 캐릭터가 만들 수 있는 물풍선의 길이를 전달해주는 코드
+                GameObject bubbleObject = Instantiate(Bubble, AttackLocation, Quaternion.identity);
+                bubbleObject.GetComponent<Bubble>().Length = currentAtkLength;
+                bubble = bubbleObject.GetComponent<Bubble>();
+
+                //물풍선 사용
+                currentBubble -= 1;
+
+                //물풍선 재충전
+                StartCoroutine(RestoreBubble());
+            }
+            else if(isThrowAvailable)
+            {
+                int direction = playerMovement.dir;
+
+                if (direction == 0)
+                {
+                    bubble.GetComponent<BubbleThrow>().Throw(0);
+                }
+                else if(direction == 1)
+                {
+                    bubble.GetComponent<BubbleThrow>().Throw(1);
+                }
+                else if (direction == 2)
+                {
+                    bubble.GetComponent<BubbleThrow>().Throw(2);
+                }
+                else if (direction == 3)
+                {
+                    bubble.GetComponent<BubbleThrow>().Throw(3);
+                }
+            }
+        }
+    }
+
+
+    protected void RandomAttack()
+    {
+        //렐렐레 효과 중 하나임
+
+        if (currentBubble > 0 && !isBubbleDeployed)
         {
             //물풍선 설치 위치 계산
             Vector2 AttackLocation = new Vector2(Mathf.Round(this.transform.position.x), Mathf.Round(this.transform.position.y));
 
-            //물풍선 프리팹을 Instantiate하고 현재 캐릭터가 만들 수 있는 물풍선의 길이를 전달해주는 코드\
+            //물풍선 프리팹을 Instantiate하고 현재 캐릭터가 만들 수 있는 물풍선의 길이를 전달해주는 코드
             GameObject bubbleObject = Instantiate(Bubble, AttackLocation, Quaternion.identity);
             bubbleObject.GetComponent<Bubble>().Length = currentAtkLength;
+            bubble = bubbleObject.GetComponent<Bubble>();
 
             //물풍선 사용
             currentBubble -= 1;

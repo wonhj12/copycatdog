@@ -58,18 +58,23 @@ public static class ItemDatabase
             case 4:
                 //ÇØ°ñ ¹°Ç³¼±
 
-                playerController.carryBubble = playerController.maxBubble;
-                playerController.currentBubble = playerController.maxBubble;
+                playerController.currentAtkLength = playerController.maxAtkLength;
 
                 break;
             case 5:
                 //±ÇÅõ
+
+                playerController.isThrowAvailable = true;
+                
                 break;
             case 6:
                 //¿îµ¿È­
                 break;
             case 7:
                 //·¼·¼·¹
+
+                playerMovement.StartCoroutine(playerMovement.Reverse());
+
                 break;
         }
     }

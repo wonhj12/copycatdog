@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b92f09cf4d76c0a4b93f4bdd2156399f, type: 3}
-  m_Name: "\uB864\uB7EC\uC2A4\uCF00\uC774\uD2B8"
+  m_Name: "\uB810\uB810\uB808"
   m_EditorClassIdentifier: 
-  key: 1
-  itemName: "\uB864\uB7EC\uC2A4\uCF00\uC774\uD2B8"
-  itemDesc: "\uCE90\uB9AD\uD130\uC758 \uC18D\uB3C4\uAC00 \uD55C \uCE78 \uBE68\uB77C\uC9C4\uB2E4."
-  itemType: 1
+  key: 7
+  itemName: "\uB810\uB810\uB808"
+  itemDesc: "\uC77C\uC2DC\uC801\uC73C\uB85C \uBC29\uD5A5\uC774 \uBC18\uB300\uB85C
+    \uC791\uB3D9\uD558\uAC70\uB098, \uC9C0\uB9D8\uB300\uB85C \uD48D\uC120\uC774 \uB193\uC5EC\uC9C0\uB294
+    \uD328\uB110\uD2F0\uB97C \uBC1B\uB294\uB2E4."
+  itemType: 3
   itemPrefab: {fileID: 0}

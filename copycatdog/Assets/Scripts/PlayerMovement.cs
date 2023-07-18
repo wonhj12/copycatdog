@@ -6,7 +6,10 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //필요한 컴포넌트
-    private Vector2 movementInput;
+    public Vector2 movementInput;
+    public int dir;
+    public bool isReversed = false;
+    public float reverseDelayTime;
 
     //인스펙터 창에 보이는 것들
     [Header("플레이어 속도")]
@@ -126,18 +129,22 @@ public class PlayerMovement : MonoBehaviour
             case 0:
                 //상
                 movementInput = Vector2.up;
+                dir = 0;
                 break;
             case 1:
                 //하
                 movementInput = Vector2.down;
+                dir = 1;
                 break;
             case 2:
                 //좌
                 movementInput = Vector2.left;
+                dir = 2;
                 break;
             case 3:
                 //우
                 movementInput = Vector2.right;
+                dir = 3;
                 break;
             default:
                 movementInput = Vector2.zero;
@@ -171,12 +178,14 @@ public class PlayerMovement : MonoBehaviour
                     //플레이어가 닿고있는 벽의 우측 벽이 없을 경우 오른쪽으로 우선 이동
                     Debug.Log("오른쪽");
                     movementInput = Vector2.right;
+                    dir = 3;
                 }
                 else
                 {
                     //플레이어가 닿고있는 벽의 좌측 벽이 없을 경우 왼쪽으로 우선 이동
                     Debug.Log("왼쪽");
                     movementInput = Vector2.left;
+                    dir = 2;
                 }
             }
         }
@@ -205,12 +214,14 @@ public class PlayerMovement : MonoBehaviour
                     //플레이어가 닿고있는 벽의 하단 벽이 없을 경우 아래쪽으로 우선 이동
                     Debug.Log("아래쪽");
                     movementInput = Vector2.down;
+                    dir = 1;
                 }
                 else
                 {
                     //플레이어가 닿고있는 벽의 상단 벽이 없을 경우 위쪽으로 우선 이동
                     Debug.Log("위쪽");
                     movementInput = Vector2.up;
+                    dir = 0;
                 }
             }
         }
@@ -219,6 +230,27 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        this.transform.Translate(movementInput.normalized * playerMoveSpeed * 0.016f);
+        if (isReversed)
+        {
+            this.transform.Translate(movementInput.normalized * playerMoveSpeed * 0.016f * -1f);
+        }
+        else
+        {
+            this.transform.Translate(movementInput.normalized * playerMoveSpeed * 0.016f);
+        }
+    }
+
+
+    public IEnumerator Reverse()
+    {
+        isReversed = true;
+        yield return new WaitForSeconds(reverseDelayTime);
+        StartCoroutine(ExitReverse());
+    }
+
+    private IEnumerator ExitReverse()
+    {
+        isReversed = false;
+        yield return null;
     }
 }

@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 4488072787070128297}
   - component: {fileID: 5892667650915763873}
   - component: {fileID: 8884128656635381482}
+  - component: {fileID: 5162170246482410449}
   - component: {fileID: 4864834107795664014}
   - component: {fileID: 5561055771098150262}
   m_Layer: 0
@@ -216,7 +217,23 @@ MonoBehaviour:
   player: {fileID: 0}
   box_Col: {fileID: 4864834107795664014}
   circle_Col: {fileID: 3014139326950877913}
+  isExploded: 0
   isPlayerIn: 1
+--- !u!114 &5162170246482410449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5817794975239032692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0976e55f53b69bd47bffd76121074791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isThrowed: 0
+  dir: 0
+  speed: 1
 --- !u!61 &4864834107795664014
 BoxCollider2D:
   m_ObjectHideFlags: 0
