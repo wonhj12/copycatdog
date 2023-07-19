@@ -234,6 +234,7 @@ MonoBehaviour:
   isThrowed: 0
   dir: 0
   speed: 1
+  positionRange: 0.1
 --- !u!61 &4864834107795664014
 BoxCollider2D:
   m_ObjectHideFlags: 0
