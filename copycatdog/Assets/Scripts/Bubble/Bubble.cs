@@ -6,7 +6,8 @@ public class Bubble : MonoBehaviour
 {
     //시간 관련 변수들
     [Header("시간 관련 변수들")]
-    public float explodeTime;
+    public float explodeTime;           //물풍선 폭파 지점
+    public float waterDestroyTime;      //물풍선 삭제 지점
 
     //길이, 방향 관련 변수들
     [Header("길이, 방향 관련 변수들")]
@@ -35,7 +36,7 @@ public class Bubble : MonoBehaviour
         circle_Col.SetActive(true);
 
         StartCoroutine(WaterSplash());
-        Destroy(this.gameObject, explodeTime);
+        Destroy(this.gameObject, explodeTime + waterDestroyTime);
     }
 
     
@@ -49,7 +50,7 @@ public class Bubble : MonoBehaviour
     }
     
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {

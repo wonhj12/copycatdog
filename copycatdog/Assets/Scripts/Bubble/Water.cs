@@ -24,9 +24,29 @@ public class Water : MonoBehaviour
     //필요한 컴포넌트
     [Header("필요한 컴포넌트")]
     public GameObject WaterPrefab;
+    private SpriteRenderer sprite;
+    public Sprite[] spriteWater = new Sprite[4];
 
     private void Start()
     {
+        sprite = GetComponent<SpriteRenderer>();
+
+        switch (Direction)
+        {
+            case 0:
+                sprite.sprite = spriteWater[0];
+                break;
+            case 1:
+                sprite.sprite = spriteWater[1];
+                break;
+            case 2:
+                sprite.sprite = spriteWater[2];
+                break;
+            case 3:
+                sprite.sprite = spriteWater[3];
+                break;
+        }
+
         Destroy(this.gameObject, DestroyTime);
         if (remain_Length > 0)
         {

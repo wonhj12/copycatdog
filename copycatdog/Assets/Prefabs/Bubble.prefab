@@ -213,11 +213,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeTime: 3
+  waterDestroyTime: 0.4
   Length: 0
   Water: {fileID: 4944474734684742207, guid: 82ff80c27436e7a49aa2755fdcbb02d3, type: 3}
   player: {fileID: 0}
   box_Col: {fileID: 4864834107795664014}
   circle_Col: {fileID: 3014139326950877913}
+  explodeSprite: {fileID: -1457194910, guid: 9f54a91aa813be84a93efe15aadeabd5, type: 3}
+  sprite: {fileID: 0}
   isExploded: 0
   isPlayerIn: 1
 --- !u!114 &5162170246482410449
@@ -272,7 +275,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

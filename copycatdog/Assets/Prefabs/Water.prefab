@@ -148,3 +148,8 @@ MonoBehaviour:
   remain_Length: 0
   Direction: 0
   WaterPrefab: {fileID: 4944474734684742207}
+  spriteWater:
+  - {fileID: 1669082589, guid: 9f54a91aa813be84a93efe15aadeabd5, type: 3}
+  - {fileID: -1186323965, guid: 9f54a91aa813be84a93efe15aadeabd5, type: 3}
+  - {fileID: 887262981, guid: 9f54a91aa813be84a93efe15aadeabd5, type: 3}
+  - {fileID: 995218077, guid: 9f54a91aa813be84a93efe15aadeabd5, type: 3}
