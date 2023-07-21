@@ -7,15 +7,18 @@ public class BubbleThrow : MonoBehaviour
     [SerializeField] private bool isThrowed = false;
     public int dir = 4;
     public float speed;
-    private MapController map;
     public float positionRange;
 
     private bool isReturned = false;
     private bool isLandAvailable = false;
 
+    private MapCheck map;
+    private BoxCollider2D col;
+
     private void Awake()
     {
-        map = FindObjectOfType<MapController>();
+        map = GetComponent<MapCheck>();
+        col = GetComponent<BoxCollider2D>();
     }
 
     private void Update()
@@ -52,8 +55,7 @@ public class BubbleThrow : MonoBehaviour
             Check();
             if (isLandAvailable)
             {
-                dir = 4;
-                this.transform.position = new Vector2(Mathf.Round(this.transform.position.x), Mathf.Round(this.transform.position.y));
+                ForceLand();
             }
         }
     }
@@ -62,11 +64,35 @@ public class BubbleThrow : MonoBehaviour
     {
         isThrowed = true;
         dir = direction;
+        this.gameObject.layer = 9;
     }
 
-    private void Land()
+    private IEnumerator Land()
     {
+        float randTime = Random.Range(0, 11);
+        Debug.Log("·£´ý°ª" + randTime);
+        randTime = randTime / 15;
+
+        yield return new WaitForSeconds(randTime);
+
         isThrowed = false;
+        dir = 4;
+        this.transform.position = new Vector2(Mathf.Round(this.transform.position.x), Mathf.Round(this.transform.position.y));
+        this.gameObject.layer = 0;
+    }
+
+    private void ForceLand()
+    {
+        RaycastHit2D hit_p = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.zero, 0.1f, LayerMask.GetMask("Player"));
+        if(hit_p.transform != null)
+        {
+            Debug.Log("ÇÑ¹ÙÄû ´Ù µ¹¾ÒÀ½");
+            isThrowed = false;
+            dir = 4;
+            this.transform.position = new Vector2(Mathf.Round(this.transform.position.x), Mathf.Round(this.transform.position.y));
+            this.gameObject.layer = 0;
+            col.isTrigger = true;
+        }
     }
 
     private void Check()
@@ -101,6 +127,7 @@ public class BubbleThrow : MonoBehaviour
                 {
                     Debug.Log(this.transform.position.y + "Can Land on " + y_intPos);
                     isLandAvailable = true;
+                    StartCoroutine(Land());
                 }
             }
             else if (dir < 4)
@@ -109,6 +136,7 @@ public class BubbleThrow : MonoBehaviour
                 {
                     Debug.Log(this.transform.position.x + "Can Land on " + x_intPos);
                     isLandAvailable = true;
+                    StartCoroutine(Land());
                 }
             }
         }

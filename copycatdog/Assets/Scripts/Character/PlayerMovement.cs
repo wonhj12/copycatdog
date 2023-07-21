@@ -8,8 +8,12 @@ public class PlayerMovement : MonoBehaviour
     //필요한 컴포넌트
     public Vector2 movementInput;
     public int dir;
+    private int slipDir;
     public bool isReversed = false;
+    public bool isSlipped = false;
     public float reverseDelayTime;
+    public GameObject bondObject;
+    public GameObject bananaObject;
 
     //인스펙터 창에 보이는 것들
     [Header("플레이어 속도")]
@@ -226,13 +230,43 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isReversed)
+        if (!isSlipped)
         {
-            this.transform.Translate(movementInput.normalized * playerMoveSpeed * 0.016f * -1f);
+            if (isReversed)
+            {
+                this.transform.Translate(movementInput.normalized * playerMoveSpeed * 0.016f * -1f);
+            }
+            else
+            {
+                this.transform.Translate(movementInput.normalized * playerMoveSpeed * 0.016f);
+            }
         }
         else
         {
-            this.transform.Translate(movementInput.normalized * playerMoveSpeed * 0.016f);
+            switch (slipDir)
+            {
+                case 0:
+                    this.transform.Translate(Vector2.up * playerMoveSpeed * 0.016f);
+                    break;
+                case 1:
+                    this.transform.Translate(Vector2.down * playerMoveSpeed * 0.016f);
+                    break;
+                case 2:
+                    this.transform.Translate(Vector2.left * playerMoveSpeed * 0.016f);
+                    break;
+                case 3:
+                    this.transform.Translate(Vector2.right * playerMoveSpeed * 0.016f);
+                    break;
+            }
+        }
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Wall") || collision.transform.CompareTag("Obstacle"))
+        {
+            isSlipped = false;
         }
     }
 
@@ -247,6 +281,37 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator ExitReverse()
     {
         isReversed = false;
+        yield return null;
+    }
+
+    public IEnumerator Slow()
+    {
+        float speed = playerMoveSpeed;
+        playerMoveSpeed = 0.5f;
+        yield return new WaitForSeconds(10);
+        StartCoroutine(ExitSlow(speed));
+    }
+
+    private IEnumerator ExitSlow(float speed)
+    {
+        playerMoveSpeed = speed;
+        yield return null;
+    }
+
+    public void BondCreate()
+    {
+        Instantiate(bondObject, new Vector2(Mathf.Round(this.transform.position.x), Mathf.Round(this.transform.position.y)), transform.rotation);
+    }
+
+    public void BananaCreate()
+    {
+        Instantiate(bananaObject, new Vector2(Mathf.Round(this.transform.position.x), Mathf.Round(this.transform.position.y)), transform.rotation);
+    }
+
+    public IEnumerator Slip()
+    {
+        slipDir = dir;
+        isSlipped = true;
         yield return null;
     }
 }

@@ -8,6 +8,7 @@ TagManager:
   - Item
   - Bubble
   - Obstacle
+  - Wall
   layers:
   - Default
   - TransparentFX

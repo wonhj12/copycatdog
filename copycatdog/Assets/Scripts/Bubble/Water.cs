@@ -34,6 +34,25 @@ public class Water : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        switch (Direction)
+        {
+            case (int)Dir.up:
+                Debug.DrawRay(transform.position, new Vector3(Vector2.up.x, Vector2.up.y, 0), new Color(0, 1, 0));
+                break;
+            case (int)Dir.down:
+                Debug.DrawRay(transform.position, new Vector3(Vector2.down.x, Vector2.down.y, 0), new Color(0, 1, 0));
+                break;
+            case (int)Dir.left:
+                Debug.DrawRay(transform.position, new Vector3(Vector2.left.x, Vector2.left.y, 0), new Color(0, 1, 0));
+                break;
+            case (int)Dir.right:
+                Debug.DrawRay(transform.position, new Vector3(Vector2.right.x, Vector2.right.y, 0), new Color(0, 1, 0));
+                break;
+        }
+    }
+
     private IEnumerator WaterStream(int dir)
     {
         yield return new WaitForSeconds(DelayTime);

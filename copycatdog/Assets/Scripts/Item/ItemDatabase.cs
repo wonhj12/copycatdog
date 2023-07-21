@@ -144,6 +144,7 @@ public static class ItemDatabase
             /*  소모형 아이템  */
             case 301:
                 //바나나
+                playerMovement.BananaCreate();
                 break;
 
             case 302:
@@ -152,6 +153,7 @@ public static class ItemDatabase
 
             case 303:
                 //본드
+                playerMovement.BondCreate();
                 break;
 
             case 304:
