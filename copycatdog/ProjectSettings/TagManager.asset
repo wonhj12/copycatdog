@@ -20,6 +20,7 @@ TagManager:
   - HitBox
   - ItemCollider
   - Airborne
+  - Bush
   - Bubble
   - WorldLimit
   - UFO
