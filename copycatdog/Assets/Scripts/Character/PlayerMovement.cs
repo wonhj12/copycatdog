@@ -478,7 +478,7 @@ public class PlayerMovement : MonoBehaviour
                 playerMoveSpeed = ufoSpeed;
                 isUFO = true;
 
-                this.gameObject.layer = 12;
+                this.gameObject.layer = 13;
                 break;
         }
     }
