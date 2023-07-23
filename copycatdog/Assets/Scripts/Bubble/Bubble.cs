@@ -12,6 +12,9 @@ public class Bubble : MonoBehaviour
     //길이, 방향 관련 변수들
     [Header("길이, 방향 관련 변수들")]
     public int Length;
+    private int slipDir;
+    private bool isSlipped = false;
+    [SerializeField] private float slipSpeed;
 
     //필요한 컴포넌트
     [Header("필요한 컴포넌트")]
@@ -56,6 +59,75 @@ public class Bubble : MonoBehaviour
         {
             isPlayerIn = true;
             player = collision.GetComponent<Character>();       //닿아있는 플레이어의 캐릭터 오브젝트 가져오기
+        }
+    }
+
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Wall") || collision.transform.CompareTag("Obstacle") && isSlipped)
+        {
+            switch (slipDir)
+            {
+                case 0:
+                    RaycastHit2D hit_1 = Physics2D.Raycast(this.transform.position, Vector2.up, 0.4f, LayerMask.GetMask("Wall", "WorldLimit"));
+                    if(hit_1.transform != null)
+                    {
+                        SlipStop();
+                    }
+                    break;
+                case 1:
+                    RaycastHit2D hit_2 = Physics2D.Raycast(this.transform.position, Vector2.down, 0.4f, LayerMask.GetMask("Wall", "WorldLimit"));
+                    if (hit_2.transform != null)
+                    {
+                        SlipStop();
+                    }
+                    break;
+                case 2:
+                    RaycastHit2D hit_3 = Physics2D.Raycast(this.transform.position, Vector2.left, 0.4f, LayerMask.GetMask("Wall", "WorldLimit"));
+                    if (hit_3.transform != null)
+                    {
+                        SlipStop();
+                    }
+                    break;
+                case 3:
+                    RaycastHit2D hit_4 = Physics2D.Raycast(this.transform.position, Vector2.right, 0.4f, LayerMask.GetMask("Wall", "WorldLimit"));
+                    if (hit_4.transform != null)
+                    {
+                        SlipStop();
+                    }
+                    break;
+            }
+        }
+    }
+
+
+    private void SlipStop()
+    {
+        this.transform.position = new Vector2(Mathf.Round(this.transform.position.x), Mathf.Round(this.transform.position.y));
+        isSlipped = false;
+    }
+
+
+    private void FixedUpdate()
+    {
+        if (isSlipped)
+        {
+            switch (slipDir)
+            {
+                case 0:
+                    this.transform.Translate(Vector2.up * slipSpeed * 0.016f);
+                    break;
+                case 1:
+                    this.transform.Translate(Vector2.down * slipSpeed * 0.016f);
+                    break;
+                case 2:
+                    this.transform.Translate(Vector2.left * slipSpeed * 0.016f);
+                    break;
+                case 3:
+                    this.transform.Translate(Vector2.right * slipSpeed * 0.016f);
+                    break;
+            }
         }
     }
 
@@ -172,5 +244,12 @@ public class Bubble : MonoBehaviour
         {
             isWall[3] = true;
         }
+    }
+
+    public void Slip(int dir)
+    {
+        Debug.Log("밀기 " + dir);
+        slipDir = dir;
+        isSlipped = true;
     }
 }

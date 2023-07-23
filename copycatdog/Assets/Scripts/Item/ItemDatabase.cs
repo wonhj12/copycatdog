@@ -81,10 +81,6 @@ public static class ItemDatabase
                 playerController.isPushAvailable = true;
                 break;
 
-            case 107:
-                //자석
-                break;
-
 
             /*  너프형 아이템  */
             case 201:
@@ -149,6 +145,7 @@ public static class ItemDatabase
 
             case 302:
                 //트랩
+                playerMovement.TrapCreate();
                 break;
 
             case 303:
@@ -192,14 +189,17 @@ public static class ItemDatabase
             /*  탈것  */
             case 401:
                 //거북이
+                playerMovement.Board(401);
                 break;
 
             case 402:
                 //부엉이
+                playerMovement.Board(402);
                 break;
 
             case 403:
                 //우주선
+                playerMovement.Board(403);
                 break;
         }
     }

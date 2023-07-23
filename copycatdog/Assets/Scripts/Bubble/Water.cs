@@ -80,7 +80,7 @@ public class Water : MonoBehaviour
         switch (dir)
         {
             case (int)Dir.up:
-                RaycastHit2D hit_up = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.up, 1, LayerMask.GetMask("Wall"));
+                RaycastHit2D hit_up = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.up, 1, LayerMask.GetMask("Wall", "WorldLimit"));
                 if(hit_up.transform == null)
                 {
                     GameObject Stream0 = Instantiate(WaterPrefab, new Vector2(this.transform.position.x, this.transform.position.y + 1), Quaternion.identity);
@@ -98,7 +98,7 @@ public class Water : MonoBehaviour
                 break;
 
             case (int)Dir.down:
-                RaycastHit2D hit_down = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.down, 1, LayerMask.GetMask("Wall"));
+                RaycastHit2D hit_down = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.down, 1, LayerMask.GetMask("Wall", "WorldLimit"));
                 if (hit_down.transform == null)
                 {
                     GameObject Stream1 = Instantiate(WaterPrefab, new Vector2(this.transform.position.x, this.transform.position.y - 1), Quaternion.identity);
@@ -116,7 +116,7 @@ public class Water : MonoBehaviour
                 break;
 
             case (int)Dir.left:
-                RaycastHit2D hit_left = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.left, 1, LayerMask.GetMask("Wall"));
+                RaycastHit2D hit_left = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.left, 1, LayerMask.GetMask("Wall", "WorldLimit"));
                 if (hit_left.transform == null)
                 {
                     GameObject Stream2 = Instantiate(WaterPrefab, new Vector2(this.transform.position.x - 1, this.transform.position.y), Quaternion.identity);
@@ -134,7 +134,7 @@ public class Water : MonoBehaviour
                 break;
 
             case (int)Dir.right:
-                RaycastHit2D hit_right = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.right, 1, LayerMask.GetMask("Wall"));
+                RaycastHit2D hit_right = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.right, 1, LayerMask.GetMask("Wall", "WorldLimit"));
                 if (hit_right.transform == null)
                 {
                     GameObject Stream3 = Instantiate(WaterPrefab, new Vector2(this.transform.position.x + 1, this.transform.position.y), Quaternion.identity);

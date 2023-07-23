@@ -16,6 +16,7 @@ public class Character : MonoBehaviour
     public bool isThrowAvailable = false;
     public bool isPushAvailable = false;
     public bool isShieldAvailable = false;
+    public bool isBoarding = false;
     public Bubble bubble;
 
 
@@ -124,7 +125,7 @@ public class Character : MonoBehaviour
             }
             else if(isThrowAvailable)
             {
-                int direction = playerMovement.dir;
+                int direction = playerMovement.lookingDir;
 
                 if (direction == 0)
                 {
@@ -302,20 +303,85 @@ public class Character : MonoBehaviour
         yield return null;
     }
 
+    protected void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Bubble") && isPushAvailable)
+        {
+            Debug.Log("밀기");
+            int direction = playerMovement.lookingDir;
+
+
+            switch (direction)
+            {
+                case 0:
+                    RaycastHit2D hit_1 = Physics2D.Raycast(this.transform.position, Vector2.up, 0.51f, LayerMask.GetMask("Bubble"));
+
+                    if(hit_1.transform != null)
+                    {
+                        if (hit_1.transform.tag == "Bubble")
+                        {
+                            hit_1.transform.GetComponent<Bubble>().Slip(direction);
+                        }
+                    }
+                    break;
+                case 1:
+                    RaycastHit2D hit_2 = Physics2D.Raycast(this.transform.position, Vector2.down, 0.51f, LayerMask.GetMask("Bubble"));
+
+                    if (hit_2.transform != null)
+                    {
+                        if (hit_2.transform.tag == "Bubble")
+                        {
+                            hit_2.transform.GetComponent<Bubble>().Slip(direction);
+                        }
+                    }
+                    break;
+                case 2:
+                    RaycastHit2D hit_3 = Physics2D.Raycast(this.transform.position, Vector2.left, 0.51f, LayerMask.GetMask("Bubble"));
+
+                    if (hit_3.transform != null)
+                    {
+                        if (hit_3.transform.tag == "Bubble")
+                        {
+                            hit_3.transform.GetComponent<Bubble>().Slip(direction);
+                        }
+                    }
+                    break;
+                case 3:
+                    RaycastHit2D hit_4 = Physics2D.Raycast(this.transform.position, Vector2.right, 0.51f, LayerMask.GetMask("Bubble"));
+
+                    if (hit_4.transform != null)
+                    {
+                        if (hit_4.transform.tag == "Bubble")
+                        {
+                            hit_4.transform.GetComponent<Bubble>().Slip(direction);
+                        }
+                    }
+                    break;
+            }
+        }
+    }
+
 
     public void Damage()
     {
-        if (!isDamaged && !isShieldAvailable)
+        if (isBoarding)
         {
-            isDamaged = true;
-            Debug.Log("Damaged");
+            playerMovement.StartCoroutine(playerMovement.UnBoard());
+        }
+        else
+        {
+            if (!isDamaged && !isShieldAvailable)
+            {
+                isDamaged = true;
+                Debug.Log("Damaged");
 
 
-            //데미지를 받은 애니메이션 실행
-            GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
-            playerMovement.playerMoveSpeed *= 0.1f;
+                //데미지를 받은 애니메이션 실행
+                GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
+                playerMovement.playerMoveSpeed *= 0.1f;
 
-            StartCoroutine(Die());
+                StartCoroutine(Die());
+            }
         }
     }
 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1239684856481044509}
   - component: {fileID: 4849403094049559689}
   - component: {fileID: 5036121528097515303}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CircleCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,10 +121,10 @@ GameObject:
   - component: {fileID: 5892667650915763873}
   - component: {fileID: 8884128656635381482}
   - component: {fileID: 5162170246482410449}
+  - component: {fileID: -2976629039769680664}
   - component: {fileID: 4864834107795664014}
   - component: {fileID: 5561055771098150262}
-  - component: {fileID: -2976629039769680664}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bubble
   m_TagString: Bubble
   m_Icon: {fileID: 0}
@@ -215,6 +215,7 @@ MonoBehaviour:
   explodeTime: 3
   waterDestroyTime: 0.4
   Length: 0
+  slipSpeed: 10
   Water: {fileID: 4944474734684742207, guid: 82ff80c27436e7a49aa2755fdcbb02d3, type: 3}
   player: {fileID: 0}
   box_Col: {fileID: 4864834107795664014}
@@ -239,6 +240,22 @@ MonoBehaviour:
   dir: 0
   speed: 1
   positionRange: 0.1
+--- !u!114 &-2976629039769680664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5817794975239032692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd280865a0d7e7045aea6601165082bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xUpperBound: 0
+  xLowerBound: 0
+  yUpperBound: 0
+  yLowerBound: 0
 --- !u!61 &4864834107795664014
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -311,22 +328,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 7
---- !u!114 &-2976629039769680664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5817794975239032692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd280865a0d7e7045aea6601165082bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xUpperBound: 0
-  xLowerBound: 0
-  yUpperBound: 0
-  yLowerBound: 0
 --- !u!1 &8777572394722647092
 GameObject:
   m_ObjectHideFlags: 0

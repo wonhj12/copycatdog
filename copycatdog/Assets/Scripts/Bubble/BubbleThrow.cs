@@ -117,7 +117,7 @@ public class BubbleThrow : MonoBehaviour
                 break;
         }
         Debug.DrawRay(transform.position, new Vector3(direction.x, direction.y, 0), new Color(0, 1, 0));
-        RaycastHit2D hit_1 = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), direction, 0.1f, LayerMask.GetMask("Wall"));
+        RaycastHit2D hit_1 = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), direction, 0.1f, LayerMask.GetMask("Wall", "WorldLimit"));
 
         if(hit_1.transform == null)
         {
