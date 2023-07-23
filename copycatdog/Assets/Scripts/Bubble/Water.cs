@@ -185,5 +185,11 @@ public class Water : MonoBehaviour
                 collision.GetComponent<Bubble>().StartCoroutine(collision.GetComponent<Bubble>().WaterSplash_Immediate());
             }
         }
+
+        if ( collision.CompareTag("Obstacle"))
+        {
+            //장애물과 충돌시
+            collision.GetComponent<ObstacleBehavior>().Damage();
+        }
     }
 }

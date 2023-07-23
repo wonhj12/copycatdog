@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5cefcf7a3c3ecd3419590717db8e29ac
+guid: f4d2c6c215d2de24b89ad6596d2e62d2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 64
+    maxTextureSize: 128
     resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 0
@@ -110,51 +110,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: House_0
+      name: BrickTile_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 64
+        y: 3
         width: 32
-        height: 43
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: -16, y: -15.5}
-        - {x: 16, y: -15.5}
-        - {x: 16, y: 15.5}
-        - {x: -16, y: 15.5}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3332e728c0818a84481686b3ce803850
-      internalID: -391398413
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: House_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 43
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -16, y: -15.5}
-        - {x: 16, y: -15.5}
-        - {x: 16, y: 15.5}
-        - {x: -16, y: 15.5}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89e3faf305dc07444a3b009dd1dc7092
-      internalID: 1499695713
+      spriteID: d2f8a4d11d3ba30409da7a08d7c0680a
+      internalID: 269121013
       vertices: []
       indices: 
       edges: []
@@ -170,8 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      House_0: -391398413
-      House_1: 1499695713
+      BrickTile_0: 269121013
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
