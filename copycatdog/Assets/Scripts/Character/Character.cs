@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    [Header("플레이어 구분")]
+    public int playerNum = 1;
+
     //상태 관련 변수
     [Header("상태 관련 변수")]
     public bool isRiding;
@@ -67,6 +70,7 @@ public class Character : MonoBehaviour
     [SerializeField] private Item currentItem;
     //물풍선 프리팹
     public GameObject Bubble;
+    private Animator anim;
 
 
 
@@ -74,6 +78,7 @@ public class Character : MonoBehaviour
     {
         playerMovement = GetComponent<PlayerMovement>();
         bubbleExplodeTime = Bubble.GetComponent<Bubble>().explodeTime;
+        anim = GetComponent<Animator>();
         initialAtkLength = currentAtkLength;
         for (int i = 0; i < inventory.Length; i++)
         {
@@ -373,11 +378,9 @@ public class Character : MonoBehaviour
             if (!isDamaged && !isShieldAvailable)
             {
                 isDamaged = true;
-                Debug.Log("Damaged");
-
 
                 //데미지를 받은 애니메이션 실행
-                GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
+                anim.SetBool("isDamaged", true);
                 playerMovement.playerMoveSpeed *= 0.1f;
 
                 StartCoroutine(Die());
@@ -389,9 +392,9 @@ public class Character : MonoBehaviour
     public void UnDamage()
     {
         isDamaged = false;
-        Debug.Log("Revived");
+        anim.SetBool("isDamaged", false);
+        anim.SetBool("isRevived", true);
 
-        GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
         playerMovement.playerMoveSpeed *= 10f;
     }
 
@@ -401,8 +404,7 @@ public class Character : MonoBehaviour
         yield return new WaitForSeconds(5);
         if (isDamaged)
         {
-            Debug.Log("Died");
-            GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
+            anim.SetBool("isDead", true);
             playerMovement.playerMoveSpeed = 0;
             isAlive = false;
         }

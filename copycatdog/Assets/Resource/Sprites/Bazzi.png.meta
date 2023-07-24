@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e7c0cdd8f2e8b4c4ebb60bcdb2af1c7c
+guid: 378344979a73d0e4e8a8d31618600367
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dao_0
+      name: Bazzi_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5433839c966725241a189e6034a1bb8b
-      internalID: 305399574
+      spriteID: 650b67d3c45996444a6948b63833fff1
+      internalID: 728117877
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_1
+      name: Bazzi_1
       rect:
         serializedVersion: 2
         x: 70
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ed637ef8bd01084f8ee42e6e4d501eb
-      internalID: 39843069
+      spriteID: bcf7ea1129c5f6b4e9820d404a90e585
+      internalID: 664545887
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_2
+      name: Bazzi_2
       rect:
         serializedVersion: 2
         x: 140
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f83fb24fafbee604c9c526094f2c3c07
-      internalID: 983846865
+      spriteID: bb2cbce18fb00ca4886071d60ed31c4d
+      internalID: -1102466729
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_3
+      name: Bazzi_3
       rect:
         serializedVersion: 2
         x: 210
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bc1f97a1cc7b2a4eaa4243e2a6a774d
-      internalID: -1064494824
+      spriteID: ce3cad6c47850e244a454a0081496109
+      internalID: -1832094780
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_4
+      name: Bazzi_4
       rect:
         serializedVersion: 2
         x: 280
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d97c3ae4f9a53ec4ab04a78d10889891
-      internalID: -795480315
+      spriteID: de76db869c8ae5e4c8c1f158dcc827c4
+      internalID: -271932015
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_5
+      name: Bazzi_5
       rect:
         serializedVersion: 2
         x: 0
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0d2914ca20c36f4b8b3664458513c13
-      internalID: 1857252926
+      spriteID: e45ab8b744dd5ce4591eb63fd9573235
+      internalID: 603454990
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_6
+      name: Bazzi_6
       rect:
         serializedVersion: 2
         x: 70
@@ -250,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb3ae3d7af965d845bbb1d2667588efc
-      internalID: -1044502727
+      spriteID: dcf7d8220d55a7a4e90ddc17b6814952
+      internalID: -1187708332
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_7
+      name: Bazzi_7
       rect:
         serializedVersion: 2
         x: 140
@@ -271,14 +271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5a09970ebfc74c4b96424681394b6c7
-      internalID: -850591781
+      spriteID: f836055a3c46c4d4b8719643fe125db4
+      internalID: 2137695072
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_8
+      name: Bazzi_8
       rect:
         serializedVersion: 2
         x: 210
@@ -292,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49b3bd2079d9104458d5323f69a98e4a
-      internalID: -600567588
+      spriteID: 8b090efcc1697864a9fe9b7233123eb5
+      internalID: 1113042213
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_9
+      name: Bazzi_9
       rect:
         serializedVersion: 2
         x: 280
@@ -313,14 +313,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97962c863416f3f439ccc4c09287a7ad
-      internalID: 529702832
+      spriteID: 3e6b4248da509e745a5292e9026f7b63
+      internalID: 724699131
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_10
+      name: Bazzi_10
       rect:
         serializedVersion: 2
         x: 0
@@ -334,14 +334,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ab80abc2cad00f40b3fb7f75a22f4f3
-      internalID: -211884231
+      spriteID: 2838a797a0836274bb75d2059493dcf2
+      internalID: -1989065434
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_11
+      name: Bazzi_11
       rect:
         serializedVersion: 2
         x: 70
@@ -355,14 +355,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b2a11ac70cc0af4aa25b824ec529f82
-      internalID: 994894460
+      spriteID: 52aeb3d731991ba47831f973df3c94c1
+      internalID: -1631469676
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_12
+      name: Bazzi_12
       rect:
         serializedVersion: 2
         x: 140
@@ -376,14 +376,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43d9ec67045e621438510f69ef4d89f1
-      internalID: -1993089195
+      spriteID: a525fa80a215da847a20122b443beb3f
+      internalID: -290090697
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_13
+      name: Bazzi_13
       rect:
         serializedVersion: 2
         x: 210
@@ -397,35 +397,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00bc2293ca979944ebc2d5a1bc2b9b86
-      internalID: -151411247
+      spriteID: 15965b8d20634f34cad2442e69d40053
+      internalID: 1976865061
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_14
-      rect:
-        serializedVersion: 2
-        x: 280
-        y: 350
-        width: 70
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 51b179684403c4e4e909101fa3602b0d
-      internalID: 1101331513
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dao_15
+      name: Bazzi_14
       rect:
         serializedVersion: 2
         x: 0
@@ -439,14 +418,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8006c0e3980731b4db609a5ac4ff6d1f
-      internalID: -911831716
+      spriteID: c3b13f558334dc14996e7be91617742a
+      internalID: 836325112
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_16
+      name: Bazzi_15
       rect:
         serializedVersion: 2
         x: 70
@@ -460,14 +439,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8cc905947f090974e8668684e6c2c0b5
-      internalID: -99582633
+      spriteID: 79e8dd80b9a5b8448b71dad472cb2979
+      internalID: -1035666289
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_17
+      name: Bazzi_16
       rect:
         serializedVersion: 2
         x: 140
@@ -481,14 +460,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7052cd5a645cb94389330182c530a39
-      internalID: -721972376
+      spriteID: 3a4520685948b8b4eafa06a94300d621
+      internalID: 2043082880
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_18
+      name: Bazzi_17
       rect:
         serializedVersion: 2
         x: 210
@@ -502,35 +481,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5313cfd1d5fd75943ad157cebd91c038
-      internalID: -769973752
+      spriteID: d5c385eb18528a24d85216e60edc2a38
+      internalID: 2018969777
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_19
-      rect:
-        serializedVersion: 2
-        x: 280
-        y: 280
-        width: 70
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7fffe74a6c3fdcb469ce74ec75563c46
-      internalID: 826726308
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Dao_20
+      name: Bazzi_18
       rect:
         serializedVersion: 2
         x: 0
@@ -544,14 +502,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3750056c7c5401748a62c1e1230e4328
-      internalID: -361259094
+      spriteID: 1a4d206331c5e1d4abe4cb5ac5d0295a
+      internalID: -1165137616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_21
+      name: Bazzi_19
       rect:
         serializedVersion: 2
         x: 70
@@ -565,14 +523,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3d7526995151034ca3bd7a160ec495e
-      internalID: -1765628705
+      spriteID: 906eed2051ced20418398bb1854f2659
+      internalID: -267888203
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_22
+      name: Bazzi_20
       rect:
         serializedVersion: 2
         x: 140
@@ -586,14 +544,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 625c91787addb6a4ea0fde9fc5b1afda
-      internalID: 145033219
+      spriteID: 9c9ec353e79a4504a95227d6085bd2c2
+      internalID: 1322818641
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_23
+      name: Bazzi_21
       rect:
         serializedVersion: 2
         x: 210
@@ -607,14 +565,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 548524be69e262d43865eaac263d3b3a
-      internalID: -1710713110
+      spriteID: db3f6b2c85986af479f7834b1c66406b
+      internalID: 288246611
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_24
+      name: Bazzi_22
       rect:
         serializedVersion: 2
         x: 0
@@ -628,14 +586,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9eb6f015b49d7b54496fa4112f97dd0e
-      internalID: 676363544
+      spriteID: d6256563c9cd49143abbca21f1516081
+      internalID: -1161239531
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_25
+      name: Bazzi_23
       rect:
         serializedVersion: 2
         x: 70
@@ -649,14 +607,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59dcdaf7335346347ba7eab4d9d78ebf
-      internalID: 752126644
+      spriteID: 54165295e1816a8448d31ff8fa69164f
+      internalID: -639089276
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_26
+      name: Bazzi_24
       rect:
         serializedVersion: 2
         x: 140
@@ -670,14 +628,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e7ac0f22bfc2694c92af139e71d1591
-      internalID: -860008815
+      spriteID: e40fd2901a88f134cbb7d9ab55392dcf
+      internalID: -736154434
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_27
+      name: Bazzi_25
       rect:
         serializedVersion: 2
         x: 210
@@ -691,14 +649,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47a4dd7ca18259446a82f9c9ce3b564e
-      internalID: 1403385516
+      spriteID: 9d060fe9f6e63b94681269735071762c
+      internalID: 1457778449
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_28
+      name: Bazzi_26
       rect:
         serializedVersion: 2
         x: 280
@@ -712,14 +670,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97731683124b20c42a9401acb3b58e4c
-      internalID: 685501989
+      spriteID: 4137ea9dc8203f34d9a49afae1356a3a
+      internalID: 272618095
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_29
+      name: Bazzi_27
       rect:
         serializedVersion: 2
         x: 0
@@ -733,14 +691,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a93270f032cd1094ba66f46d828d5294
-      internalID: -1195047370
+      spriteID: 5c83ce7e70745c04f93d9eaee5dfe7e2
+      internalID: 2049664707
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_30
+      name: Bazzi_28
       rect:
         serializedVersion: 2
         x: 70
@@ -754,14 +712,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a9b698894d686847a7feec60144aa64
-      internalID: 1218839583
+      spriteID: 61196bf8150093a4ab6e10e5735169a7
+      internalID: -1938132398
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_31
+      name: Bazzi_29
       rect:
         serializedVersion: 2
         x: 140
@@ -775,14 +733,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a219178a4b5f6a4e84ab0e363279172
-      internalID: -619428662
+      spriteID: 3f28ac9bc50f9e34da61a841d88db6dd
+      internalID: -747071689
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_32
+      name: Bazzi_30
       rect:
         serializedVersion: 2
         x: 210
@@ -796,14 +754,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fd1dd24dc1df294d97f0bd664ce2122
-      internalID: -1532437838
+      spriteID: 6c45366ce78ec8e43880a11b45459c9c
+      internalID: -1802788029
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_33
+      name: Bazzi_31
       rect:
         serializedVersion: 2
         x: 280
@@ -817,14 +775,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b365b88b336bf3141a924fc4d1256801
-      internalID: 1978518724
+      spriteID: 83ee282b141fa2d4eb2cd5548b6917cb
+      internalID: 1782206343
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dao_34
+      name: Bazzi_32
       rect:
         serializedVersion: 2
         x: 350
@@ -838,8 +796,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74591c3385a39e9458575a5ff3f3c00a
-      internalID: -1539919931
+      spriteID: 667c2da06394f6b4a92eea140b92e686
+      internalID: -1677496438
       vertices: []
       indices: 
       edges: []
@@ -855,41 +813,39 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Dao_0: 305399574
-      Dao_1: 39843069
-      Dao_10: -211884231
-      Dao_11: 994894460
-      Dao_12: -1993089195
-      Dao_13: -151411247
-      Dao_14: 1101331513
-      Dao_15: -911831716
-      Dao_16: -99582633
-      Dao_17: -721972376
-      Dao_18: -769973752
-      Dao_19: 826726308
-      Dao_2: 983846865
-      Dao_20: -361259094
-      Dao_21: -1765628705
-      Dao_22: 145033219
-      Dao_23: -1710713110
-      Dao_24: 676363544
-      Dao_25: 752126644
-      Dao_26: -860008815
-      Dao_27: 1403385516
-      Dao_28: 685501989
-      Dao_29: -1195047370
-      Dao_3: -1064494824
-      Dao_30: 1218839583
-      Dao_31: -619428662
-      Dao_32: -1532437838
-      Dao_33: 1978518724
-      Dao_34: -1539919931
-      Dao_4: -795480315
-      Dao_5: 1857252926
-      Dao_6: -1044502727
-      Dao_7: -850591781
-      Dao_8: -600567588
-      Dao_9: 529702832
+      Bazzi_0: 728117877
+      Bazzi_1: 664545887
+      Bazzi_10: -1989065434
+      Bazzi_11: -1631469676
+      Bazzi_12: -290090697
+      Bazzi_13: 1976865061
+      Bazzi_14: 836325112
+      Bazzi_15: -1035666289
+      Bazzi_16: 2043082880
+      Bazzi_17: 2018969777
+      Bazzi_18: -1165137616
+      Bazzi_19: -267888203
+      Bazzi_2: -1102466729
+      Bazzi_20: 1322818641
+      Bazzi_21: 288246611
+      Bazzi_22: -1161239531
+      Bazzi_23: -639089276
+      Bazzi_24: -736154434
+      Bazzi_25: 1457778449
+      Bazzi_26: 272618095
+      Bazzi_27: 2049664707
+      Bazzi_28: -1938132398
+      Bazzi_29: -747071689
+      Bazzi_3: -1832094780
+      Bazzi_30: -1802788029
+      Bazzi_31: 1782206343
+      Bazzi_32: -1677496438
+      Bazzi_4: -271932015
+      Bazzi_5: 603454990
+      Bazzi_6: -1187708332
+      Bazzi_7: 2137695072
+      Bazzi_8: 1113042213
+      Bazzi_9: 724699131
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

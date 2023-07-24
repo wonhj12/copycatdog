@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("플레이어 구분")]
+    public int playerNum = 1;
+
     //필요한 컴포넌트
     [Header("필요한 컴포넌트")]
     public GameObject bondObject;
@@ -12,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject trapObject;
     private Rigidbody2D rigid;
     private Character player;
+    private Animator anim;
 
     [Header("방향")]
     private int currentInputDir = 5;
@@ -53,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
     {
         player = GetComponent<Character>();
         rigid = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         inputTime[0] = 0;
         inputTime[1] = 0;
         inputTime[2] = 0;
@@ -313,6 +318,8 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
+
+        anim.SetFloat("moveDir", dir);
 
     }
 
