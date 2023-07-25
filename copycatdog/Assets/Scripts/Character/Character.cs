@@ -70,7 +70,7 @@ public class Character : MonoBehaviour
     [SerializeField] private Item currentItem;
     //¹°Ç³¼± ÇÁ¸®ÆÕ
     public GameObject Bubble;
-    private Animator anim;
+    public Animator anim;
 
 
 
@@ -78,7 +78,6 @@ public class Character : MonoBehaviour
     {
         playerMovement = GetComponent<PlayerMovement>();
         bubbleExplodeTime = Bubble.GetComponent<Bubble>().explodeTime;
-        anim = GetComponent<Animator>();
         initialAtkLength = currentAtkLength;
         for (int i = 0; i < inventory.Length; i++)
         {

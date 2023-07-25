@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject trapObject;
     private Rigidbody2D rigid;
     private Character player;
-    private Animator anim;
+    public Animator anim;
 
     [Header("πÊ«‚")]
     private int currentInputDir = 5;
@@ -57,7 +57,6 @@ public class PlayerMovement : MonoBehaviour
     {
         player = GetComponent<Character>();
         rigid = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
         inputTime[0] = 0;
         inputTime[1] = 0;
         inputTime[2] = 0;
@@ -320,7 +319,27 @@ public class PlayerMovement : MonoBehaviour
         }
 
         anim.SetFloat("moveDir", dir);
+        if(dir == 4)
+        {
+            switch (lookingDir)
+            {
+                case 0:
+                    anim.SetFloat("moveDir", 4);
+                    break;
 
+                case 1:
+                    anim.SetFloat("moveDir", 5);
+                    break;
+
+                case 2:
+                    anim.SetFloat("moveDir", 6);
+                    break;
+
+                case 3:
+                    anim.SetFloat("moveDir", 7);
+                    break;
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -425,8 +444,8 @@ public class PlayerMovement : MonoBehaviour
     public IEnumerator Slow()
     {
         float speed = playerMoveSpeed;
-        playerMoveSpeed = 0.5f;
-        yield return new WaitForSeconds(10);
+        playerMoveSpeed = 1f;
+        yield return new WaitForSeconds(5);
         StartCoroutine(ExitSlow(speed));
     }
 

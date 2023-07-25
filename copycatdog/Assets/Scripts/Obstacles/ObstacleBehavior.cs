@@ -5,12 +5,15 @@ using UnityEngine;
 public class ObstacleBehavior : MonoBehaviour
 {
     //장애물 위치정보
-    private Vector3 obstaclePos;
-    public GameObject item;
+    private Vector2 obstaclePos;
+    private ItemManager itemManage;
+    private GameObject item;
 
     void Start()
     {
         obstaclePos = this.transform.position;
+        itemManage = FindObjectOfType<ItemManager>();
+        item = itemManage.ChooseItem();
     }
 
     // Update is called once per frame
@@ -22,15 +25,16 @@ public class ObstacleBehavior : MonoBehaviour
     public void Damage()
     {
         Destroy(gameObject, 0.15f);
-        DropItem();
+        StartCoroutine( DropItem() );
     }
 
-    private void DropItem()
+    private IEnumerator DropItem()
     {
-        if( Random.Range(0.0f, 1.0f) >= 0.7 ){
-            // 아이템 소환, 수정 필요할듯 ..
-            GameObject itemPrefab = Instantiate(item);
-            itemPrefab.transform.position = obstaclePos;
+        yield return new WaitForSeconds(0.14f);
+
+        if(item.transform != null)
+        {
+            Instantiate(item, new Vector3(Mathf.Round(this.transform.position.x), Mathf.Round(this.transform.position.y)), this.transform.rotation);
         }
     }
 }

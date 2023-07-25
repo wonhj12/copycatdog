@@ -48,9 +48,15 @@ public class Water : MonoBehaviour
         }
 
         Destroy(this.gameObject, DestroyTime);
+
         if (remain_Length > 0)
         {
             StartCoroutine(WaterStream(Direction));
+        }
+
+        if(remain_Length >= 0)
+        {
+            StartCoroutine(ObstacleDamage(Direction));
         }
     }
 
@@ -73,6 +79,72 @@ public class Water : MonoBehaviour
         }
     }
 
+    private IEnumerator ObstacleDamage(int dir)
+    {
+        yield return new WaitForSeconds(DelayTime);
+
+        switch (dir)
+        {
+            case (int)Dir.up:
+                RaycastHit2D hit_up = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.up, 0.49f, LayerMask.GetMask("Wall", "Bush"));
+                if (hit_up.transform != null)
+                {
+                    Debug.Log(hit_up.transform.name);
+                    if (hit_up.transform.CompareTag("Obstacle") || hit_up.transform.CompareTag("Bush"))
+                    {
+                        Debug.Log("장애물 파괴 " + hit_up.transform.name);
+                        hit_up.transform.GetComponent<ObstacleBehavior>().Damage();
+                    }
+                }
+                break;
+
+            case (int)Dir.down:
+                RaycastHit2D hit_down = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.down, 0.49f, LayerMask.GetMask("Wall", "Bush"));
+                if (hit_down.transform != null)
+                {
+                    Debug.Log(hit_down.transform.name);
+                    if (hit_down.transform.CompareTag("Obstacle") || hit_down.transform.CompareTag("Bush"))
+                    {
+                        Debug.Log("장애물 파괴 " + (hit_down.transform.GetComponent<ObstacleBehavior>() != null));
+                        hit_down.transform.GetComponent<ObstacleBehavior>().Damage();
+                    }
+                }
+                break;
+
+            case (int)Dir.left:
+                RaycastHit2D hit_left = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.left, 0.49f, LayerMask.GetMask("Wall", "Bush"));
+                if (hit_left.transform != null)
+                {
+                    Debug.Log(hit_left.transform.name);
+                    if (hit_left.transform.CompareTag("Obstacle") || hit_left.transform.CompareTag("Bush"))
+                    {
+                        Debug.Log("장애물 파괴 " + (hit_left.transform.GetComponent<ObstacleBehavior>() != null));
+                        hit_left.transform.GetComponent<ObstacleBehavior>().Damage();
+                    }
+                }
+                break;
+
+            case (int)Dir.right:
+                RaycastHit2D hit_right = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.right, 0.49f, LayerMask.GetMask("Wall", "Bush"));
+                if (hit_right.transform != null)
+                {
+                    Debug.Log(hit_right.transform.name);
+                    if (hit_right.transform.CompareTag("Obstacle") || hit_right.transform.CompareTag("Bush"))
+                    {
+                        Debug.Log("장애물 파괴 " + (hit_right.transform.GetComponent<ObstacleBehavior>() != null));
+                        hit_right.transform.GetComponent<ObstacleBehavior>().Damage();
+                    }
+                }
+                break;
+
+            default:
+                Debug.Log("error");
+                break;
+        }
+
+        yield return null;
+    }
+
     private IEnumerator WaterStream(int dir)
     {
         yield return new WaitForSeconds(DelayTime);
@@ -80,8 +152,8 @@ public class Water : MonoBehaviour
         switch (dir)
         {
             case (int)Dir.up:
-                RaycastHit2D hit_up = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.up, 1, LayerMask.GetMask("Wall", "WorldLimit"));
-                if(hit_up.transform == null)
+                RaycastHit2D hit_up = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.up, 1, LayerMask.GetMask("Wall", "WorldLimit", "Bush"));
+                if (hit_up.transform == null)
                 {
                     GameObject Stream0 = Instantiate(WaterPrefab, new Vector2(this.transform.position.x, this.transform.position.y + 1), Quaternion.identity);
                     Stream0.GetComponent<Water>().Direction = (int)Dir.up;
@@ -89,16 +161,17 @@ public class Water : MonoBehaviour
                 }
                 else
                 {
-                    if (hit_up.transform.CompareTag("Obstacle"))
+                    Debug.Log(hit_up.transform.name);
+                    if (hit_up.transform.CompareTag("Obstacle") || hit_up.transform.CompareTag("Bush"))
                     {
-                        //Destroy 대신 아이템 드롭 함수를 호출하면 됨
-                        Destroy(hit_up.transform.gameObject);
+                        Debug.Log("장애물 파괴 " + (hit_up.transform.GetComponent<ObstacleBehavior>() != null));
+                        hit_up.transform.GetComponent<ObstacleBehavior>().Damage();
                     }
                 }
                 break;
 
             case (int)Dir.down:
-                RaycastHit2D hit_down = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.down, 1, LayerMask.GetMask("Wall", "WorldLimit"));
+                RaycastHit2D hit_down = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.down, 1, LayerMask.GetMask("Wall", "WorldLimit", "Bush"));
                 if (hit_down.transform == null)
                 {
                     GameObject Stream1 = Instantiate(WaterPrefab, new Vector2(this.transform.position.x, this.transform.position.y - 1), Quaternion.identity);
@@ -107,16 +180,17 @@ public class Water : MonoBehaviour
                 }
                 else
                 {
-                    if (hit_down.transform.CompareTag("Obstacle"))
+                    Debug.Log(hit_down.transform.name);
+                    if (hit_down.transform.CompareTag("Obstacle") || hit_down.transform.CompareTag("Bush"))
                     {
-                        //Destroy 대신 아이템 드롭 함수를 호출하면 됨
-                        Destroy(hit_down.transform.gameObject);
+                        Debug.Log("장애물 파괴 " + (hit_down.transform.GetComponent<ObstacleBehavior>() != null));
+                        hit_down.transform.GetComponent<ObstacleBehavior>().Damage();
                     }
                 }
                 break;
 
             case (int)Dir.left:
-                RaycastHit2D hit_left = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.left, 1, LayerMask.GetMask("Wall", "WorldLimit"));
+                RaycastHit2D hit_left = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.left, 1, LayerMask.GetMask("Wall", "WorldLimit", "Bush"));
                 if (hit_left.transform == null)
                 {
                     GameObject Stream2 = Instantiate(WaterPrefab, new Vector2(this.transform.position.x - 1, this.transform.position.y), Quaternion.identity);
@@ -125,16 +199,17 @@ public class Water : MonoBehaviour
                 }
                 else
                 {
-                    if (hit_left.transform.CompareTag("Obstacle"))
+                    Debug.Log(hit_left.transform.name);
+                    if (hit_left.transform.CompareTag("Obstacle") || hit_left.transform.CompareTag("Bush"))
                     {
-                        //Destroy 대신 아이템 드롭 함수를 호출하면 됨
-                        Destroy(hit_left.transform.gameObject);
+                        Debug.Log("장애물 파괴 " + (hit_left.transform.GetComponent<ObstacleBehavior>() != null));
+                        hit_left.transform.GetComponent<ObstacleBehavior>().Damage();
                     }
                 }
                 break;
 
             case (int)Dir.right:
-                RaycastHit2D hit_right = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.right, 1, LayerMask.GetMask("Wall", "WorldLimit"));
+                RaycastHit2D hit_right = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.right, 1, LayerMask.GetMask("Wall", "WorldLimit", "Bush"));
                 if (hit_right.transform == null)
                 {
                     GameObject Stream3 = Instantiate(WaterPrefab, new Vector2(this.transform.position.x + 1, this.transform.position.y), Quaternion.identity);
@@ -143,10 +218,11 @@ public class Water : MonoBehaviour
                 }
                 else
                 {
-                    if (hit_right.transform.CompareTag("Obstacle"))
+                    Debug.Log(hit_right.transform.name);
+                    if (hit_right.transform.CompareTag("Obstacle") || hit_right.transform.CompareTag("Bush"))
                     {
-                        //Destroy 대신 아이템 드롭 함수를 호출하면 됨
-                        Destroy(hit_right.transform.gameObject);
+                        Debug.Log("장애물 파괴 " + (hit_right.transform.GetComponent<ObstacleBehavior>() != null));
+                        hit_right.transform.GetComponent<ObstacleBehavior>().Damage();
                     }
                 }
                 break;
@@ -184,12 +260,6 @@ public class Water : MonoBehaviour
 
                 collision.GetComponent<Bubble>().StartCoroutine(collision.GetComponent<Bubble>().WaterSplash_Immediate());
             }
-        }
-
-        if ( collision.CompareTag("Obstacle"))
-        {
-            //장애물과 충돌시
-            collision.GetComponent<ObstacleBehavior>().Damage();
         }
     }
 }

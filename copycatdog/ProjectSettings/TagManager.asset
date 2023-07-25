@@ -9,6 +9,7 @@ TagManager:
   - Bubble
   - Obstacle
   - Wall
+  - Bush
   layers:
   - Default
   - TransparentFX
@@ -42,8 +43,10 @@ TagManager:
   - 
   - 
   - 
-  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Map
+    uniqueID: 83277781
     locked: 0

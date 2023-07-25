@@ -5,7 +5,7 @@ using UnityEngine;
 public static class ItemDatabase
 {
     [Header("아이템 효과 변수들")]
-    public static float speed = 2;
+    public static float speed = 1;
     public static int length = 1;
     public static int bubble = 1;
 

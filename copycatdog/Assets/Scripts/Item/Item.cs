@@ -12,6 +12,8 @@ public class Item : ScriptableObject
     public ItemType itemType;   //아이템의 유형
     //public Sprite itemImage;    //아이템의 이미지(캔버스 필요 X)
     public GameObject itemPrefab;   //아이템의 프리팹
+    [Range(0, 1)]
+    public float spawnProbability;    //아이템의 확률
 
     public enum ItemType
     {

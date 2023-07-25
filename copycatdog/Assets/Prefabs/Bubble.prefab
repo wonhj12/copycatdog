@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1239684856481044509}
   - component: {fileID: 4849403094049559689}
   - component: {fileID: 5036121528097515303}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: CircleCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: -2976629039769680664}
   - component: {fileID: 4864834107795664014}
   - component: {fileID: 5561055771098150262}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Bubble
   m_TagString: Bubble
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ GameObject:
   - component: {fileID: 3899741528467950233}
   - component: {fileID: 5954899394816153166}
   - component: {fileID: 7624642902879473218}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PlayerCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -152,6 +152,10 @@ public class Bubble : MonoBehaviour
             Bubble_Up.GetComponent<Water>().remain_Length = Length - 1;
             Bubble_Up.GetComponent<Water>().Direction = (int)Dir.up;
         }
+        else
+        {
+
+        }
 
         if (isWall[1] == false)
         {
@@ -221,28 +225,52 @@ public class Bubble : MonoBehaviour
 
     private void CheckWall()
     {
-        RaycastHit2D hit_up = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.up, 1, LayerMask.GetMask("Wall"));
+        RaycastHit2D hit_up = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.up, 1, LayerMask.GetMask("Wall", "WorldLimit", "Bush"));
         if(hit_up.transform != null)
         {
             isWall[0] = true;
+            Debug.Log(hit_up.transform.name);
+            if (hit_up.transform.CompareTag("Obstacle") || hit_up.transform.CompareTag("Bush"))
+            {
+                Debug.Log("Àå¾Ö¹° ÆÄ±« " + (hit_up.transform.GetComponent<ObstacleBehavior>() != null));
+                hit_up.transform.GetComponent<ObstacleBehavior>().Damage();
+            }
         }
 
-        RaycastHit2D hit_down = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.down, 1, LayerMask.GetMask("Wall"));
+        RaycastHit2D hit_down = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.down, 1, LayerMask.GetMask("Wall", "WorldLimit", "Bush"));
         if (hit_down.transform != null)
         {
             isWall[1] = true;
+            Debug.Log(hit_down.transform.name);
+            if (hit_down.transform.CompareTag("Obstacle") || hit_down.transform.CompareTag("Bush"))
+            {
+                Debug.Log("Àå¾Ö¹° ÆÄ±« " + (hit_down.transform.GetComponent<ObstacleBehavior>() != null));
+                hit_down.transform.GetComponent<ObstacleBehavior>().Damage();
+            }
         }
 
-        RaycastHit2D hit_left = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.left, 1, LayerMask.GetMask("Wall"));
+        RaycastHit2D hit_left = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.left, 1, LayerMask.GetMask("Wall", "WorldLimit", "Bush"));
         if (hit_left.transform != null)
         {
             isWall[2] = true;
+            Debug.Log(hit_left.transform.name);
+            if (hit_left.transform.CompareTag("Obstacle") || hit_left.transform.CompareTag("Bush"))
+            {
+                Debug.Log("Àå¾Ö¹° ÆÄ±« " + (hit_left.transform.GetComponent<ObstacleBehavior>() != null));
+                hit_left.transform.GetComponent<ObstacleBehavior>().Damage();
+            }
         }
 
-        RaycastHit2D hit_right = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.right, 1, LayerMask.GetMask("Wall"));
+        RaycastHit2D hit_right = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), Vector2.right, 1, LayerMask.GetMask("Wall", "WorldLimit", "Bush"));
         if (hit_right.transform != null)
         {
             isWall[3] = true;
+            Debug.Log(hit_right.transform.name);
+            if (hit_right.transform.CompareTag("Obstacle") || hit_right.transform.CompareTag("Bush"))
+            {
+                Debug.Log("Àå¾Ö¹° ÆÄ±« " + (hit_right.transform.GetComponent<ObstacleBehavior>() != null));
+                hit_right.transform.GetComponent<ObstacleBehavior>().Damage();
+            }
         }
     }
 
