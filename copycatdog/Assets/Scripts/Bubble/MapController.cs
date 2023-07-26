@@ -32,12 +32,14 @@ public class MapController : MonoBehaviour
         GameObject player1;
         GameObject player2;
 
-        /*
         while (randSpawn_2 == randSpawn_1)
         {
             randSpawn_2 = Random.Range(0, spawnPoints.Length);
         }
 
+        Debug.Log(randSpawn_1 + " " + randSpawn_2);
+
+        /*
         switch (playerCharacter_1)
         {
             case 0:

@@ -10,6 +10,9 @@ public class Character : MonoBehaviour
     [Header("플레이어 구분")]
     public int playerNum = 1;
 
+    private KeyCode[] keySet = new KeyCode[2];
+    public GameObject[] ping;
+
     //상태 관련 변수
     [Header("상태 관련 변수")]
     public bool isRiding;
@@ -87,6 +90,24 @@ public class Character : MonoBehaviour
         {
             effectIndex[i] = -1;
         }
+
+        if(playerNum == 1)
+        {
+            ping[0].SetActive(true);
+            ping[1].SetActive(false);
+
+            keySet[0] = KeyCode.F;
+            keySet[1] = KeyCode.G;
+
+        }else if(playerNum == 2)
+        {
+            ping[0].SetActive(false);
+            ping[1].SetActive(true);
+
+            keySet[0] = KeyCode.Greater;
+            keySet[1] = KeyCode.Less;
+
+        }
     }
 
 
@@ -96,7 +117,7 @@ public class Character : MonoBehaviour
         if (isAlive)
         {
             //공격 버튼을 누르면
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(keySet[0]))
             {
                 Attack();
             }
@@ -271,7 +292,7 @@ public class Character : MonoBehaviour
         //아이템 기능 개발 후 적용
         //아이템 효과들을 모아놓은 스크립트 호출
 
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyDown(keySet[1]))
         {
             if (inventory[0] != 999)
             {

@@ -50,3 +50,6 @@ TagManager:
   - name: Map
     uniqueID: 83277781
     locked: 0
+  - name: UIOverlay
+    uniqueID: 3461314951
+    locked: 0

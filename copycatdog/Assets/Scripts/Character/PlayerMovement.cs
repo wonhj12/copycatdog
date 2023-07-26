@@ -50,8 +50,9 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("상하좌우키가 눌린 시간")]
     [SerializeField] private float[] inputTime = new float[4];
-
     private float minInputTime = 5;
+
+    private KeyCode[] keySet = new KeyCode[4];
 
     private void Awake()
     {
@@ -61,30 +62,43 @@ public class PlayerMovement : MonoBehaviour
         inputTime[1] = 0;
         inputTime[2] = 0;
         inputTime[3] = 0;
+        if(playerNum == 1)
+        {
+            keySet[0] = KeyCode.W;
+            keySet[1] = KeyCode.S;
+            keySet[2] = KeyCode.A;
+            keySet[3] = KeyCode.D;
+        }else if(playerNum == 2)
+        {
+            keySet[0] = KeyCode.UpArrow;
+            keySet[1] = KeyCode.DownArrow;
+            keySet[2] = KeyCode.LeftArrow;
+            keySet[3] = KeyCode.RightArrow;
+        }
     }
 
     private void Update()
     {
         // 상 이동
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(keySet[0]))
         {
             inputTime[0] += Time.deltaTime;
         }
 
         // 하 이동
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(keySet[1]))
         {
             inputTime[1] += Time.deltaTime;
         }
 
         // 좌 이동
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(keySet[2]))
         {
             inputTime[2] += Time.deltaTime;
         }
 
         // 우 이동
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(keySet[3]))
         {
             inputTime[3] += Time.deltaTime;
         }
@@ -104,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
         //키 놓았을 때 초기화
 
         //상
-        if (Input.GetKeyUp(KeyCode.UpArrow))
+        if (Input.GetKeyUp(keySet[0]))
         {
             inputTime[0] = 0;
             minInputTime = 5;
@@ -117,7 +131,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //하
-        if (Input.GetKeyUp(KeyCode.DownArrow))
+        if (Input.GetKeyUp(keySet[1]))
         {
             inputTime[1] = 0;
             minInputTime = 5;
@@ -130,7 +144,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //좌
-        if (Input.GetKeyUp(KeyCode.LeftArrow))
+        if (Input.GetKeyUp(keySet[2]))
         {
             inputTime[2] = 0;
             minInputTime = 5;
@@ -143,7 +157,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //우
-        if (Input.GetKeyUp(KeyCode.RightArrow))
+        if (Input.GetKeyUp(keySet[3]))
         {
             inputTime[3] = 0;
             minInputTime = 5;
