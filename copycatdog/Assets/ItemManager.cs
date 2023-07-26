@@ -8,11 +8,27 @@ public class ItemManager : MonoBehaviour
 
     public GameObject ChooseItem()
     {
-        int randNum = Random.Range(0, Items.Length);
+        int randCategory = Random.Range(0, 4);
+
+        int randNum = 0;
 
         int randProbability = Random.Range(0, 100);
 
-        //Debug.Log(Items[randNum].GetComponentInChildren<ItemPickUp>().currentItem.spawnProbability);
+        switch (randCategory)
+        {
+            case 0:
+                randNum = Random.Range(0, 6);
+                break;
+            case 1:
+                randNum = Random.Range(6, 8);
+                break;
+            case 2:
+                randNum = Random.Range(8, 13);
+                break;
+            case 3:
+                randNum = Random.Range(13, 16);
+                break;
+        }
 
         if(randProbability >= Items[randNum].GetComponentInChildren<ItemPickUp>().currentItem.spawnProbability * 100)
         {

@@ -18,33 +18,23 @@ public class Water : MonoBehaviour
 
     //길이, 방향 관련 변수들
     [Header("길이, 방향 관련 변수들")]
+    public int total_Length;
     public int remain_Length;
     public int Direction = 5;
 
     //필요한 컴포넌트
     [Header("필요한 컴포넌트")]
     public GameObject WaterPrefab;
-    private SpriteRenderer sprite;
-    public Sprite[] spriteWater = new Sprite[4];
+    private Animator anim;
 
     private void Start()
     {
-        sprite = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
+        anim.SetFloat("Dir", Direction);
 
-        switch (Direction)
+        if (remain_Length == 0)
         {
-            case 0:
-                sprite.sprite = spriteWater[0];
-                break;
-            case 1:
-                sprite.sprite = spriteWater[1];
-                break;
-            case 2:
-                sprite.sprite = spriteWater[2];
-                break;
-            case 3:
-                sprite.sprite = spriteWater[3];
-                break;
+            anim.SetBool("isEnd", true);
         }
 
         Destroy(this.gameObject, DestroyTime);
@@ -57,6 +47,7 @@ public class Water : MonoBehaviour
         if(remain_Length >= 0)
         {
             StartCoroutine(ObstacleDamage(Direction));
+            StartCoroutine(EndAnimation());
         }
     }
 
@@ -77,6 +68,19 @@ public class Water : MonoBehaviour
                 Debug.DrawRay(transform.position, new Vector3(Vector2.right.x, Vector2.right.y, 0), new Color(0, 1, 0));
                 break;
         }
+    }
+
+    private IEnumerator EndAnimation()
+    {
+        yield return new WaitForSeconds(DestroyTime - 0.2f);
+        anim.SetBool("FinishWater", true);
+        Debug.Log(total_Length - remain_Length);
+        int animRemainLength = total_Length - 2 * remain_Length;
+        if(animRemainLength < 0)
+        {
+            animRemainLength = 0;
+        }
+        anim.Play("EndTree", 0, (animRemainLength) / 9);
     }
 
     private IEnumerator ObstacleDamage(int dir)

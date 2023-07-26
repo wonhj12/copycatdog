@@ -2321,67 +2321,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1984445330500854954, guid: b987cd4de343af04388eb7f2d5a7b5d9, type: 3}
   m_PrefabInstance: {fileID: 1434174652}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &481696542
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1635090272}
-    m_Modifications:
-    - target: {fileID: 1831183956895563380, guid: 3b806b14bdff37544acc654543c53a6b, type: 3}
-      propertyPath: m_Name
-      value: House3 (13)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1984445330500854954, guid: 3b806b14bdff37544acc654543c53a6b, type: 3}
-      propertyPath: m_RootOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1984445330500854954, guid: 3b806b14bdff37544acc654543c53a6b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 1984445330500854954, guid: 3b806b14bdff37544acc654543c53a6b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 1984445330500854954, guid: 3b806b14bdff37544acc654543c53a6b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1984445330500854954, guid: 3b806b14bdff37544acc654543c53a6b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1984445330500854954, guid: 3b806b14bdff37544acc654543c53a6b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1984445330500854954, guid: 3b806b14bdff37544acc654543c53a6b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1984445330500854954, guid: 3b806b14bdff37544acc654543c53a6b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1984445330500854954, guid: 3b806b14bdff37544acc654543c53a6b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1984445330500854954, guid: 3b806b14bdff37544acc654543c53a6b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1984445330500854954, guid: 3b806b14bdff37544acc654543c53a6b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3b806b14bdff37544acc654543c53a6b, type: 3}
 --- !u!1001 &482407264
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6772,6 +6711,11 @@ MonoBehaviour:
   xLowerBound: -8.5
   yUpperBound: 7.5
   yLowerBound: -7.5
+  spawnPoints: []
+  playerCharacter_1: 0
+  playerCharacter_2: 0
+  Bazzi: {fileID: 4714126244307303751, guid: 9072f4220f7ebaa4d8dcf6388e37f424, type: 3}
+  Dao: {fileID: 4714126244307303751, guid: 83fcec57bb974a64d892cd441a89a077, type: 3}
 --- !u!4 &1404936422
 Transform:
   m_ObjectHideFlags: 0
@@ -7822,11 +7766,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 419e1b360fd116e4eb42584c3a57e406, type: 3}
---- !u!4 &1613693834 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1984445330500854954, guid: 3b806b14bdff37544acc654543c53a6b, type: 3}
-  m_PrefabInstance: {fileID: 481696542}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1622278631 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1984445330500854954, guid: 9a4bf724bd2647942a4a0ac43ded5ba0, type: 3}
@@ -7873,7 +7812,6 @@ Transform:
   - {fileID: 757789972}
   - {fileID: 2025321933}
   - {fileID: 211903254}
-  - {fileID: 1613693834}
   - {fileID: 1251865819}
   m_Father: {fileID: 667410760}
   m_RootOrder: -1

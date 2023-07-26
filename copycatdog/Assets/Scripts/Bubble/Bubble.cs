@@ -24,6 +24,7 @@ public class Bubble : MonoBehaviour
     [SerializeField] private GameObject circle_Col;
     public Sprite explodeSprite;
     [SerializeField] private SpriteRenderer sprite;
+    private Animator anim;
 
     [Header("상태 변수")]
     public bool isExploded = false;
@@ -32,6 +33,7 @@ public class Bubble : MonoBehaviour
 
     private void Start()
     {
+        anim = GetComponent<Animator>();
         box_Col = GetComponent<BoxCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
 
@@ -136,6 +138,8 @@ public class Bubble : MonoBehaviour
     {
         yield return new WaitForSeconds(explodeTime - 0.2f);
 
+        anim.SetBool("isExploded", true);
+
         CheckWall();
 
         isExploded = true;
@@ -150,6 +154,7 @@ public class Bubble : MonoBehaviour
         {
             GameObject Bubble_Up = Instantiate(Water, new Vector2(this.transform.position.x, this.transform.position.y + 1), Quaternion.identity);
             Bubble_Up.GetComponent<Water>().remain_Length = Length - 1;
+            Bubble_Up.GetComponent<Water>().total_Length = Length;
             Bubble_Up.GetComponent<Water>().Direction = (int)Dir.up;
         }
         else
@@ -161,6 +166,7 @@ public class Bubble : MonoBehaviour
         {
             GameObject Bubble_Down = Instantiate(Water, new Vector2(this.transform.position.x, this.transform.position.y - 1), Quaternion.identity);
             Bubble_Down.GetComponent<Water>().remain_Length = Length - 1;
+            Bubble_Down.GetComponent<Water>().total_Length = Length;
             Bubble_Down.GetComponent<Water>().Direction = (int)Dir.down;
         }
 
@@ -168,6 +174,7 @@ public class Bubble : MonoBehaviour
         {
             GameObject Bubble_Left = Instantiate(Water, new Vector2(this.transform.position.x - 1, this.transform.position.y), Quaternion.identity);
             Bubble_Left.GetComponent<Water>().remain_Length = Length - 1;
+            Bubble_Left.GetComponent<Water>().total_Length = Length;
             Bubble_Left.GetComponent<Water>().Direction = (int)Dir.left;
         }
 
@@ -175,6 +182,7 @@ public class Bubble : MonoBehaviour
         {
             GameObject Bubble_Right = Instantiate(Water, new Vector2(this.transform.position.x + 1, this.transform.position.y), Quaternion.identity);
             Bubble_Right.GetComponent<Water>().remain_Length = Length - 1;
+            Bubble_Right.GetComponent<Water>().total_Length = Length;
             Bubble_Right.GetComponent<Water>().Direction = (int)Dir.right;
         }
     }
@@ -194,6 +202,7 @@ public class Bubble : MonoBehaviour
         {
             GameObject Bubble_Up = Instantiate(Water, new Vector2(this.transform.position.x, this.transform.position.y + 1), Quaternion.identity);
             Bubble_Up.GetComponent<Water>().remain_Length = Length - 1;
+            Bubble_Up.GetComponent<Water>().total_Length = Length;
             Bubble_Up.GetComponent<Water>().Direction = (int)Dir.up;
         }
 
@@ -201,6 +210,7 @@ public class Bubble : MonoBehaviour
         {
             GameObject Bubble_Down = Instantiate(Water, new Vector2(this.transform.position.x, this.transform.position.y - 1), Quaternion.identity);
             Bubble_Down.GetComponent<Water>().remain_Length = Length - 1;
+            Bubble_Down.GetComponent<Water>().total_Length = Length;
             Bubble_Down.GetComponent<Water>().Direction = (int)Dir.down;
         }
 
@@ -208,6 +218,7 @@ public class Bubble : MonoBehaviour
         {
             GameObject Bubble_Left = Instantiate(Water, new Vector2(this.transform.position.x - 1, this.transform.position.y), Quaternion.identity);
             Bubble_Left.GetComponent<Water>().remain_Length = Length - 1;
+            Bubble_Left.GetComponent<Water>().total_Length = Length;
             Bubble_Left.GetComponent<Water>().Direction = (int)Dir.left;
         }
 
@@ -215,6 +226,7 @@ public class Bubble : MonoBehaviour
         {
             GameObject Bubble_Right = Instantiate(Water, new Vector2(this.transform.position.x + 1, this.transform.position.y), Quaternion.identity);
             Bubble_Right.GetComponent<Water>().remain_Length = Length - 1;
+            Bubble_Right.GetComponent<Water>().total_Length = Length;
             Bubble_Right.GetComponent<Water>().Direction = (int)Dir.right;
         }
 

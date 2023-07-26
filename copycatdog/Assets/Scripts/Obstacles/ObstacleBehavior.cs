@@ -8,6 +8,7 @@ public class ObstacleBehavior : MonoBehaviour
     private Vector2 obstaclePos;
     private ItemManager itemManage;
     private GameObject item;
+    public GameObject DestroyPrefab;
 
     void Start()
     {
@@ -30,6 +31,12 @@ public class ObstacleBehavior : MonoBehaviour
 
     private IEnumerator DropItem()
     {
+        if(DestroyPrefab.transform != null)
+        {
+            GameObject desObj = Instantiate(DestroyPrefab, this.transform.position, this.transform.rotation);
+            Destroy(desObj, 0.5f);
+        }
+
         yield return new WaitForSeconds(0.14f);
 
         if(item.transform != null)

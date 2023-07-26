@@ -120,7 +120,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  isShadow: 0
 --- !u!1 &2930620073557769826
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,6 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a24dc57d4295684bb6a1d8f2d00e189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DestroyPrefab: {fileID: 2930620073557769826, guid: 79a4ae2e8f8b492498bea90d8376dfb5, type: 3}
 --- !u!114 &7860767541143504584
 MonoBehaviour:
   m_ObjectHideFlags: 0

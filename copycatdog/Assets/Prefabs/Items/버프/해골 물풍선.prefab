@@ -33,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 1941340678069196323}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4381454455416909608
 SpriteRenderer:
@@ -168,8 +168,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1941340678069196323}
-  - component: {fileID: 5269202905048098507}
   - component: {fileID: 7695681018220141896}
+  - component: {fileID: 7654936526556408690}
   m_Layer: 0
   m_Name: ItemStatus
   m_TagString: Untagged
@@ -192,8 +192,22 @@ Transform:
   m_Father: {fileID: 6134123121567809479}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &5269202905048098507
-CircleCollider2D:
+--- !u!114 &7695681018220141896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6206344369572117233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3836d5a127f3f1c4b8d3e040e1127165, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentItem: {fileID: 11400000, guid: 0ea604ccad4e0f342a52d40d80099808, type: 2}
+  ItemObject: {fileID: 204870385752628059}
+--- !u!61 &7654936526556408690
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -225,19 +239,15 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5
---- !u!114 &7695681018220141896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6206344369572117233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3836d5a127f3f1c4b8d3e040e1127165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentItem: {fileID: 11400000, guid: 0ea604ccad4e0f342a52d40d80099808, type: 2}
-  ItemObject: {fileID: 204870385752628059}
+  m_Size: {x: 0.5, y: 0.5}
+  m_EdgeRadius: 0

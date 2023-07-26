@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 94545268803904502}
-  - component: {fileID: 4446209756464231214}
   - component: {fileID: 6291723609844846761}
+  - component: {fileID: 3382749715206894055}
   m_Layer: 0
   m_Name: ItemStatus
   m_TagString: Untagged
@@ -33,8 +33,22 @@ Transform:
   m_Father: {fileID: 8045100228102200703}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &4446209756464231214
-CircleCollider2D:
+--- !u!114 &6291723609844846761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594872427451775049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3836d5a127f3f1c4b8d3e040e1127165, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentItem: {fileID: 11400000, guid: 36e789260e0b60946ac6e798c76b6da1, type: 2}
+  ItemObject: {fileID: 8486690440576786154}
+--- !u!61 &3382749715206894055
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -66,22 +80,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5
---- !u!114 &6291723609844846761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 594872427451775049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3836d5a127f3f1c4b8d3e040e1127165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentItem: {fileID: 11400000, guid: 36e789260e0b60946ac6e798c76b6da1, type: 2}
-  ItemObject: {fileID: 8486690440576786154}
+  m_Size: {x: 0.5, y: 0.5}
+  m_EdgeRadius: 0
 --- !u!1 &8486690440576786154
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,7 +125,7 @@ Transform:
   m_Children:
   - {fileID: 94545268803904502}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7677210915253594908
 SpriteRenderer:

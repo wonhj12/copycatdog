@@ -6,7 +6,6 @@ public class OrderRenderer : MonoBehaviour
 {
     private SpriteRenderer sprite;
     public bool isPlayer = false;
-    public bool isShadow = false;
 
     private void Awake()
     {
@@ -25,10 +24,6 @@ public class OrderRenderer : MonoBehaviour
 
     private void Order()
     {
-        sprite.sortingOrder = (int) Mathf.Round( this.transform.position.y * (-1) );
-        if (isShadow)
-        {
-            sprite.sortingOrder = sprite.sortingOrder - 1;
-        }
+        sprite.sortingOrder = (int)Mathf.Round(this.transform.position.y * (-1));
     }
 }
