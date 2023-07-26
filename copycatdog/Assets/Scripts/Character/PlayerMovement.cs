@@ -204,7 +204,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-
         //벽 따라가기 시스템
 
         Vector2 WallFollowDirection = movementInput;
@@ -214,6 +213,14 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Debug.DrawRay(transform.position, new Vector3(WallFollowDirection.normalized.x, WallFollowDirection.normalized.y, 0), new Color(0, 1, 0));
+
+
+        RaycastHit2D hit_Box = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), WallFollowDirection.normalized, 0.51f, LayerMask.GetMask("Wall"));
+        if(hit_Box.transform != null && hit_Box.transform.TryGetComponent<BoxBehavior>(out BoxBehavior box))
+        {
+            box.Push(lookingDir);
+        }
+
 
         if (currentInputDir < 2)
         {
@@ -301,7 +308,7 @@ public class PlayerMovement : MonoBehaviour
                     //플레이어가 닿고 있는 벽의 상, 하단 벽이 모두 있는 경우 정지
                     //Debug.Log("좌우 움직임 막힘");
                     movementInput = Vector2.zero;
-                    dir = 0;
+                    dir = 4;
                 }
                 else if (hit_d.collider == null)
                 {
@@ -332,7 +339,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if(dir == 4)
+        if (dir == 4)
         {
             switch (lookingDir)
             {
