@@ -318,7 +318,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        anim.SetFloat("moveDir", dir);
         if(dir == 4)
         {
             switch (lookingDir)
@@ -340,6 +339,11 @@ public class PlayerMovement : MonoBehaviour
                     break;
             }
         }
+        else
+        {
+            anim.SetFloat("moveDir", dir);
+        }
+        anim.SetFloat("Dir", dir);
     }
 
     private void FixedUpdate()
@@ -493,15 +497,18 @@ public class PlayerMovement : MonoBehaviour
             //데미지 입어도 몇초 무적상태 후(깜빡임) 일반상태로 복구되도록
             case 401:
                 playerMoveSpeed = turtleSpeed;
+                anim.SetBool("isTurtle", true);
                 break;
 
             case 402:
                 playerMoveSpeed = owlSpeed;
+                anim.SetBool("isOwl", true);
                 break;
 
             case 403:
                 //우주선이라서 맵 테두리만 아니면 충돌 무시
                 playerMoveSpeed = ufoSpeed;
+                anim.SetBool("isUFO", true);
                 isUFO = true;
 
                 this.gameObject.layer = 13;
@@ -511,7 +518,12 @@ public class PlayerMovement : MonoBehaviour
 
     public IEnumerator UnBoard()
     {
+        anim.SetBool("isTurtle", false);
+        anim.SetBool("isOwl", false);
+        anim.SetBool("isUFO", false);
+
         player.isBoarding = false;
+        isUFO = false;
 
         player.isShieldAvailable = true;
         playerMoveSpeed = 0;
