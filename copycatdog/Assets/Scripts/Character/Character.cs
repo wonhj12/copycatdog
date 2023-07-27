@@ -8,7 +8,7 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     [Header("플레이어 구분")]
-    public int playerNum = 1;
+    public int playerNum;
 
     private KeyCode[] keySet = new KeyCode[2];
     public GameObject[] ping;
@@ -91,6 +91,7 @@ public class Character : MonoBehaviour
             effectIndex[i] = -1;
         }
 
+        /*
         if(playerNum == 1)
         {
             ping[0].SetActive(true);
@@ -108,6 +109,30 @@ public class Character : MonoBehaviour
             keySet[1] = KeyCode.Less;
 
         }
+        */
+    }
+
+    public void SetP1()
+    {
+        playerNum = 1;
+        playerMovement.SetP1();
+        ping[0].SetActive(true);
+        ping[1].SetActive(false);
+
+        keySet[0] = KeyCode.F;
+        keySet[1] = KeyCode.G;
+    }
+
+
+    public void SetP2()
+    {
+        playerNum = 2;
+        playerMovement.SetP2();
+        ping[0].SetActive(false);
+        ping[1].SetActive(true);
+
+        keySet[0] = KeyCode.Comma;
+        keySet[1] = KeyCode.Period;
     }
 
 
@@ -427,6 +452,7 @@ public class Character : MonoBehaviour
             anim.SetBool("isDead", true);
             playerMovement.playerMoveSpeed = 0;
             isAlive = false;
+            GameObject.FindGameObjectWithTag("MainManager").GetComponent<MainManager>().GameOver(playerNum);
         }
     }
 }

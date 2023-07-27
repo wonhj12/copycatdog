@@ -25,6 +25,10 @@ public class MapController : MonoBehaviour
 
     private void Awake()
     {
+        MainManager manager = GameObject.FindGameObjectWithTag("MainManager").GetComponent<MainManager>();
+        playerCharacter_1 = manager.player1;
+        playerCharacter_2 = manager.player2;
+
         //서로 다른 스폰 포인트 생성
         int randSpawn_1 = Random.Range(0, spawnPoints.Length);
         int randSpawn_2 = Random.Range(0, spawnPoints.Length);
@@ -39,7 +43,6 @@ public class MapController : MonoBehaviour
 
         Debug.Log(randSpawn_1 + " " + randSpawn_2);
 
-        /*
         switch (playerCharacter_1)
         {
             case 0:
@@ -53,7 +56,7 @@ public class MapController : MonoBehaviour
                 player1 = Instantiate(Bazzi, spawnPoints[randSpawn_1].position, Quaternion.identity);
                 break;
         }
-        player1.GetComponent<Character>().playerNum = 1;
+        player1.GetComponent<Character>().SetP1();
 
         switch (playerCharacter_2)
         {
@@ -68,7 +71,6 @@ public class MapController : MonoBehaviour
                 player2 = Instantiate(Bazzi, spawnPoints[randSpawn_1].position, Quaternion.identity);
                 break;
         }
-        player2.GetComponent<Character>().playerNum = 2;
-        */
+        player2.GetComponent<Character>().SetP2();
     }
 }

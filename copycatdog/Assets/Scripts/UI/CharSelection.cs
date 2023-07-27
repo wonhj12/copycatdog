@@ -13,8 +13,12 @@ public class CharSelection : MonoBehaviour
     public int selChar1;
     public int selChar2;
 
+    MainManager manager;
+
     private void Start()
     {
+        manager = GameObject.FindGameObjectWithTag("MainManager").GetComponent<MainManager>();
+
         // Char 1 
         for (int i = 0; i < char1.Length; i++)
         {
@@ -53,6 +57,9 @@ public class CharSelection : MonoBehaviour
 
     public void gotoMapSel()
     {
+        manager.player1 = selChar1;
+        manager.player2 = selChar2;
+
         SceneManager.LoadScene("Map_Selection");
     }
 }

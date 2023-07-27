@@ -10,6 +10,8 @@ TagManager:
   - Obstacle
   - Wall
   - Bush
+  - MainManager
+  - MapController
   layers:
   - Default
   - TransparentFX
