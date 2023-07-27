@@ -77,11 +77,11 @@ public class Character : MonoBehaviour
     //물풍선 프리팹
     public GameObject Bubble;
     public Animator anim;
-
-
+    private BoxCollider2D col;
 
     protected void Awake()
     {
+        col = GetComponent<BoxCollider2D>();
         playerMovement = GetComponent<PlayerMovement>();
         bubbleExplodeTime = Bubble.GetComponent<Bubble>().explodeTime;
         audio = GetComponent<AudioSource>();
@@ -429,6 +429,8 @@ public class Character : MonoBehaviour
             if (!isDamaged && !isShieldAvailable)
             {
                 isDamaged = true;
+                this.gameObject.layer = 14;
+                col.isTrigger = true;
 
                 //데미지를 받은 애니메이션 실행
                 anim.SetBool("isDamaged", true);
@@ -443,6 +445,9 @@ public class Character : MonoBehaviour
     public void UnDamage()
     {
         isDamaged = false;
+        this.gameObject.layer = 3;
+        col.isTrigger = false;
+
         anim.SetBool("isDamaged", false);
         anim.SetBool("isRevived", true);
 
@@ -450,9 +455,30 @@ public class Character : MonoBehaviour
     }
 
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Player") && collision.gameObject != this.gameObject)
+        {
+            StartCoroutine(InstantDie());
+        }
+    }
+
+
     private IEnumerator Die()
     {
         yield return new WaitForSeconds(5);
+        if (isDamaged)
+        {
+            anim.SetBool("isDead", true);
+            playerMovement.playerMoveSpeed = 0;
+            isAlive = false;
+            GameObject.FindGameObjectWithTag("MainManager").GetComponent<MainManager>().GameOver(playerNum);
+        }
+    }
+
+    private IEnumerator InstantDie()
+    {
+        yield return null;
         if (isDamaged)
         {
             anim.SetBool("isDead", true);

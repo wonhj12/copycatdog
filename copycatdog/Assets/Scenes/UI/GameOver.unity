@@ -441,23 +441,23 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uBA54\uC778 \uBA54\uB274"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3a4d15ed1315ada429c1394a635f1eef, type: 2}
-  m_sharedMaterial: {fileID: -7835413503903371217, guid: 3a4d15ed1315ada429c1394a635f1eef, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 915c18b8bce1c0c4293a2bcbba5ab542, type: 2}
+  m_sharedMaterial: {fileID: -1944251724420282399, guid: 915c18b8bce1c0c4293a2bcbba5ab542, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_enableVertexGradient: 0
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 26ef7866adc981f4a9ba6cae57d08636, type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
@@ -1099,7 +1099,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 300}
-  m_SizeDelta: {x: 600, y: 50}
+  m_SizeDelta: {x: 939.8371, y: 173.5775}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2088445892
 MonoBehaviour:
@@ -1123,8 +1123,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uD50C\uB808\uC774\uC5B4 1 \uC2B9\uB9AC!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3a4d15ed1315ada429c1394a635f1eef, type: 2}
-  m_sharedMaterial: {fileID: -7835413503903371217, guid: 3a4d15ed1315ada429c1394a635f1eef, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 915c18b8bce1c0c4293a2bcbba5ab542, type: 2}
+  m_sharedMaterial: {fileID: -1944251724420282399, guid: 915c18b8bce1c0c4293a2bcbba5ab542, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1132,14 +1132,14 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
-  m_enableVertexGradient: 0
+  m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 26ef7866adc981f4a9ba6cae57d08636, type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}

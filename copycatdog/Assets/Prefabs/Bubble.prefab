@@ -330,7 +330,7 @@ MonoBehaviour:
   circle_Col: {fileID: 3014139326950877913}
   explodeSprite: {fileID: -1457194910, guid: 9f54a91aa813be84a93efe15aadeabd5, type: 3}
   sprite: {fileID: 0}
-  pop: {fileID: 8300000, guid: 5106a85769c1d3f42859e2ccfabcdf35, type: 3}
+  pop: {fileID: 8300000, guid: 303e6aa202b72254d919a2539fa37bd4, type: 3}
   isExploded: 0
   isPlayerIn: 1
 --- !u!114 &5162170246482410449
