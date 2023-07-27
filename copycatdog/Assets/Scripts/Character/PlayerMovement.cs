@@ -62,7 +62,6 @@ public class PlayerMovement : MonoBehaviour
         inputTime[1] = 0;
         inputTime[2] = 0;
         inputTime[3] = 0;
-        /*
         if(playerNum == 1)
         {
             keySet[0] = KeyCode.W;
@@ -76,7 +75,6 @@ public class PlayerMovement : MonoBehaviour
             keySet[2] = KeyCode.LeftArrow;
             keySet[3] = KeyCode.RightArrow;
         }
-        */
     }
 
     public void SetP1()

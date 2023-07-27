@@ -11,6 +11,10 @@ public class ItemPickUp : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
+            Character c = collision.GetComponent<Character>();
+            c.audio.clip = c.eatItem;
+            c.audio.Play();
+
             if(currentItem.itemType != Item.ItemType.Consume)
             {
                 //버프, 너프형 아이템이거나 탈것인 경우

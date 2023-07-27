@@ -10,6 +10,7 @@ public class Character : MonoBehaviour
     [Header("플레이어 구분")]
     public int playerNum;
 
+    public AudioSource audio;
     private KeyCode[] keySet = new KeyCode[2];
     public GameObject[] ping;
 
@@ -32,6 +33,7 @@ public class Character : MonoBehaviour
 
 
     [Header("캐릭터 속성 - 물풍선 설치 & 개수")]
+    public AudioClip bombSet;   // 물풍선 설치 audio
     public int currentBubble;   //현재 맵에 설치 가능한 물풍선 개수
     public int carryBubble;     //현재 들고다닐 수 있는 최대 물풍선 개수
     public int maxBubble;       //최대로 들고다닐 수 있는 물풍선의 개수
@@ -46,6 +48,7 @@ public class Character : MonoBehaviour
 
 
     [Header("캐릭터 속성 - 아이템 사용 관련 변수")]
+    public AudioClip eatItem;
     public float randMaxDelay;           //랜덤공격 간 최대 딜레이 타임
     public float randMinDelay;           //랜덤공격 간 최소 딜레이 타임
 
@@ -81,6 +84,7 @@ public class Character : MonoBehaviour
     {
         playerMovement = GetComponent<PlayerMovement>();
         bubbleExplodeTime = Bubble.GetComponent<Bubble>().explodeTime;
+        audio = GetComponent<AudioSource>();
         initialAtkLength = currentAtkLength;
         for (int i = 0; i < inventory.Length; i++)
         {
@@ -91,7 +95,6 @@ public class Character : MonoBehaviour
             effectIndex[i] = -1;
         }
 
-        /*
         if(playerNum == 1)
         {
             ping[0].SetActive(true);
@@ -109,7 +112,6 @@ public class Character : MonoBehaviour
             keySet[1] = KeyCode.Less;
 
         }
-        */
     }
 
     public void SetP1()
@@ -166,6 +168,10 @@ public class Character : MonoBehaviour
                 GameObject bubbleObject = Instantiate(Bubble, AttackLocation, Quaternion.identity);
                 bubbleObject.GetComponent<Bubble>().Length = currentAtkLength;
                 bubble = bubbleObject.GetComponent<Bubble>();
+
+                // 소리 재생
+                audio.clip = bombSet;
+                audio.Play();
 
                 //물풍선 사용
                 currentBubble -= 1;

@@ -13,8 +13,12 @@ public class MainManager : MonoBehaviour
 
     public int loser;
 
+    private AudioSource audio;
+    public AudioClip die;
+
     private void Awake()
     {
+        audio = GetComponent<AudioSource>();
         if (Instance != null)
         {
             Destroy(gameObject);
@@ -28,6 +32,8 @@ public class MainManager : MonoBehaviour
     {
         this.loser = loser;
         Debug.Log("Game Over");
+        audio.clip = die;
+        audio.Play();
         SceneManager.LoadScene("GameOver"); 
     }
 }

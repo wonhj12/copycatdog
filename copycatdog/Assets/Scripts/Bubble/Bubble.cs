@@ -25,6 +25,8 @@ public class Bubble : MonoBehaviour
     public Sprite explodeSprite;
     [SerializeField] private SpriteRenderer sprite;
     private Animator anim;
+    private AudioSource audio;
+    public AudioClip pop;
 
     [Header("상태 변수")]
     public bool isExploded = false;
@@ -36,6 +38,7 @@ public class Bubble : MonoBehaviour
         anim = GetComponent<Animator>();
         box_Col = GetComponent<BoxCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
+        audio = GetComponent<AudioSource>();
 
         box_Col.enabled = false;
         circle_Col.SetActive(true);
@@ -144,6 +147,9 @@ public class Bubble : MonoBehaviour
 
         isExploded = true;
         sprite.sprite = explodeSprite;
+
+        audio.clip = pop;
+        audio.Play();
 
         if (isPlayerIn)
         {
