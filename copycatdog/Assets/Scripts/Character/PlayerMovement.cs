@@ -5,11 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("플레이어 구분")]
+    [Header("???????? ????")]
     public int playerNum = 1;
 
-    //필요한 컴포넌트
-    [Header("필요한 컴포넌트")]
+    //?????? ????????
+    [Header("?????? ????????")]
     public GameObject bondObject;
     public GameObject bananaObject;
     public GameObject trapObject;
@@ -17,17 +17,17 @@ public class PlayerMovement : MonoBehaviour
     private Character player;
     public Animator anim;
 
-    [Header("방향")]
+    [Header("????")]
     private int currentInputDir = 5;
     public Vector2 movementInput;
-    public int lookingDir;      //0123 : 상하좌우, 정지 상태는 없음.
-    public int dir = 4;         //4 : 정지, 0123 : 상하좌우
+    public int lookingDir;      //0123 : ????????, ???? ?????? ????.
+    public int dir = 4;         //4 : ????, 0123 : ????????
 
-    [Header("벽 따라가기 시스템 관련 변수들")]
+    [Header("?? ???????? ?????? ???? ??????")]
     public float checkWallLimit;        //0.4f
     public float executeLimit;          //0.45f
 
-    [Header("덫 관련 변수들")]
+    [Header("?? ???? ??????")]
     private int slipDir;
     public bool isReversed = false;
     public bool isSlipped = false;
@@ -36,19 +36,19 @@ public class PlayerMovement : MonoBehaviour
     public float slipSpeed;
     private float slipPreviousSpeed;
 
-    [Header("탈것 관련 변수들")]
+    [Header("???? ???? ??????")]
     [SerializeField] private float turtleSpeed;
     [SerializeField] private float owlSpeed;
     [SerializeField] private float ufoSpeed;
     [SerializeField] private bool isUFO = false;
     private float previousSpeed;
 
-    //인스펙터 창에 보이는 것들
-    [Header("플레이어 속도")]
+    //???????? ???? ?????? ????
+    [Header("???????? ????")]
     public float maxPlayerMoveSpeed;
     public float playerMoveSpeed;
 
-    [Header("상하좌우키가 눌린 시간")]
+    [Header("???????????? ???? ????")]
     [SerializeField] private float[] inputTime = new float[4];
     private float minInputTime = 5;
 
@@ -97,32 +97,32 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        // 상 이동
+        // ?? ????
         if (Input.GetKey(keySet[0]))
         {
             inputTime[0] += Time.deltaTime;
         }
 
-        // 하 이동
+        // ?? ????
         if (Input.GetKey(keySet[1]))
         {
             inputTime[1] += Time.deltaTime;
         }
 
-        // 좌 이동
+        // ?? ????
         if (Input.GetKey(keySet[2]))
         {
             inputTime[2] += Time.deltaTime;
         }
 
-        // 우 이동
+        // ?? ????
         if (Input.GetKey(keySet[3]))
         {
             inputTime[3] += Time.deltaTime;
         }
 
 
-        //가장 최근 눌린 키 확인
+        //???? ???? ???? ?? ????
         for (int i = 0; i < 4; i++)
         {
             if (minInputTime > inputTime[i] && inputTime[i] != 0)
@@ -133,9 +133,9 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        //키 놓았을 때 초기화
+        //?? ?????? ?? ??????
 
-        //상
+        //??
         if (Input.GetKeyUp(keySet[0]))
         {
             inputTime[0] = 0;
@@ -148,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        //하
+        //??
         if (Input.GetKeyUp(keySet[1]))
         {
             inputTime[1] = 0;
@@ -161,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        //좌
+        //??
         if (Input.GetKeyUp(keySet[2]))
         {
             inputTime[2] = 0;
@@ -174,7 +174,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        //우
+        //??
         if (Input.GetKeyUp(keySet[3]))
         {
             inputTime[3] = 0;
@@ -188,29 +188,29 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        //가장 최근에 입력된 값을 기준으로 현재 움직임 결정
+        //???? ?????? ?????? ???? ???????? ???? ?????? ????
         switch (currentInputDir)
         {
             case 0:
-                //상
+                //??
                 movementInput = Vector2.up;
                 lookingDir = 0;
                 dir = 0;
                 break;
             case 1:
-                //하
+                //??
                 movementInput = Vector2.down;
                 lookingDir = 1;
                 dir = 1;
                 break;
             case 2:
-                //좌
+                //??
                 movementInput = Vector2.left;
                 lookingDir = 2;
                 dir = 2;
                 break;
             case 3:
-                //우
+                //??
                 movementInput = Vector2.right;
                 lookingDir = 3;
                 dir = 3;
@@ -222,7 +222,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        //벽 따라가기 시스템
+        //?? ???????? ??????
 
         Vector2 WallFollowDirection = movementInput;
         if (isReversed)
@@ -242,7 +242,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (currentInputDir < 2)
         {
-            //벽과 닿는 중이라면
+            //???? ???? ????????
 
             RaycastHit2D hit_1 = Physics2D.Raycast(new Vector2(transform.position.x - checkWallLimit, transform.position.y), WallFollowDirection.normalized, 0.51f, LayerMask.GetMask("WorldLimit"));
             RaycastHit2D hit_2 = Physics2D.Raycast(new Vector2(transform.position.x + checkWallLimit, transform.position.y), WallFollowDirection.normalized, 0.51f, LayerMask.GetMask("WorldLimit"));
@@ -258,20 +258,20 @@ public class PlayerMovement : MonoBehaviour
             if (hit_1.collider != null || hit_2.collider != null)
             {
 
-                //상하 움직임이라면
+                //???? ????????????
                 RaycastHit2D hit_l = Physics2D.Raycast(new Vector2(transform.position.x - executeLimit, transform.position.y), WallFollowDirection.normalized, 0.51f, LayerMask.GetMask("Wall", "WorldLimit"));
                 RaycastHit2D hit_r = Physics2D.Raycast(new Vector2(transform.position.x + executeLimit, transform.position.y), WallFollowDirection.normalized, 0.51f, LayerMask.GetMask("Wall", "WorldLimit"));
 
                 if (hit_l.collider != null && hit_r.collider != null)
                 {
-                    //플레이어가 닿고 있는 벽의 좌, 우측 벽이 모두 있는 경우 정지
-                    //Debug.Log("상하 움직임 막힘");
+                    //?????????? ???? ???? ???? ??, ???? ???? ???? ???? ???? ????
+                    //Debug.Log("???? ?????? ????");
                     movementInput = Vector2.zero;
                     dir = 4;
                 }
                 else if (hit_r.collider == null)
                 {
-                    //플레이어가 닿고있는 벽의 우측 벽이 없을 경우 오른쪽으로 우선 이동
+                    //?????????? ???????? ???? ???? ???? ???? ???? ?????????? ???? ????
                     movementInput = Vector2.right;
                     lookingDir = 3;
                     dir = 3;
@@ -284,7 +284,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else
                 {
-                    //플레이어가 닿고있는 벽의 좌측 벽이 없을 경우 왼쪽으로 우선 이동\
+                    //?????????? ???????? ???? ???? ???? ???? ???? ???????? ???? ????\
                     movementInput = Vector2.left;
                     lookingDir = 2;
                     dir = 2;
@@ -299,7 +299,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (currentInputDir < 4)
         {
-            //벽과 닿는 중이라면
+            //???? ???? ????????
 
             RaycastHit2D hit_1 = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + checkWallLimit), WallFollowDirection.normalized, 0.51f, LayerMask.GetMask("WorldLimit"));
             RaycastHit2D hit_2 = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - checkWallLimit), WallFollowDirection.normalized, 0.51f, LayerMask.GetMask("WorldLimit"));
@@ -315,7 +315,7 @@ public class PlayerMovement : MonoBehaviour
             if (hit_1.collider != null || hit_2.collider != null)
             {
 
-                //좌우 움직임이라면
+                //???? ????????????
                 RaycastHit2D hit_u = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + executeLimit), WallFollowDirection.normalized, 0.51f, LayerMask.GetMask("Wall", "WorldLimit"));
                 RaycastHit2D hit_d = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - executeLimit), WallFollowDirection.normalized, 0.51f, LayerMask.GetMask("Wall", "WorldLimit"));
 
@@ -323,14 +323,14 @@ public class PlayerMovement : MonoBehaviour
 
                 if (hit_u.collider != null && hit_d.collider != null)
                 {
-                    //플레이어가 닿고 있는 벽의 상, 하단 벽이 모두 있는 경우 정지
-                    //Debug.Log("좌우 움직임 막힘");
+                    //?????????? ???? ???? ???? ??, ???? ???? ???? ???? ???? ????
+                    //Debug.Log("???? ?????? ????");
                     movementInput = Vector2.zero;
                     dir = 4;
                 }
                 else if (hit_d.collider == null)
                 {
-                    //플레이어가 닿고있는 벽의 하단 벽이 없을 경우 아래쪽으로 우선 이동
+                    //?????????? ???????? ???? ???? ???? ???? ???? ?????????? ???? ????
                     movementInput = Vector2.down;
                     lookingDir = 1;
                     dir = 1;
@@ -343,7 +343,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else
                 {
-                    //플레이어가 닿고있는 벽의 상단 벽이 없을 경우 위쪽으로 우선 이동
+                    //?????????? ???????? ???? ???? ???? ???? ???? ???????? ???? ????
                     movementInput = Vector2.up;
                     lookingDir = 0;
                     dir = 0;
@@ -531,9 +531,9 @@ public class PlayerMovement : MonoBehaviour
 
         switch (key)
         {
-            //속도 조정
-            //목숨 + 1
-            //데미지 입어도 몇초 무적상태 후(깜빡임) 일반상태로 복구되도록
+            //???? ????
+            //???? + 1
+            //?????? ?????? ???? ???????? ??(??????) ?????????? ??????????
             case 401:
                 playerMoveSpeed = turtleSpeed;
                 anim.SetBool("isTurtle", true);
@@ -545,7 +545,7 @@ public class PlayerMovement : MonoBehaviour
                 break;
 
             case 403:
-                //우주선이라서 맵 테두리만 아니면 충돌 무시
+                //???????????? ?? ???????? ?????? ???? ????
                 playerMoveSpeed = ufoSpeed;
                 anim.SetBool("isUFO", true);
                 isUFO = true;

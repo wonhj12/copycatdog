@@ -1,27 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MapController : MonoBehaviour
 {
-    [Header("X축 맵 경계값")]
+    [Header("Characters")]
+    GameObject player1;
+    GameObject player2;
+
+    [Header("X?? ?? ??????")]
     public float xUpperBound;
     public float xLowerBound;
 
-    [Header("Y축 맵 경계값")]
+    [Header("Y?? ?? ??????")]
     public float yUpperBound;
     public float yLowerBound;
 
-    [Header("스폰 포인트")]
+    [Header("???? ??????")]
     public Transform[] spawnPoints;
 
-    [Header("플레이어 정보")]
+    [Header("???????? ????")]
     public int playerCharacter_1;
     public int playerCharacter_2;
 
-    [Header("캐릭터")]
+    [Header("??????")]
     public GameObject Bazzi;
     public GameObject Dao;
+
+    [Header("UI")]
+    public GameObject[] p1Bombs;
+    public GameObject[] p2Bombs;
+    public GameObject[] p1Item;
+    public GameObject[] p2Item;
+    public Sprite[] character;
+    public Image p1Image;
+    public Image p2Image;
 
     private void Awake()
     {
@@ -29,12 +43,12 @@ public class MapController : MonoBehaviour
         playerCharacter_1 = manager.player1;
         playerCharacter_2 = manager.player2;
 
-        //서로 다른 스폰 포인트 생성
+        p1Image.sprite = character[manager.player1];
+        p2Image.sprite = character[manager.player2];
+
+        //???? ???? ???? ?????? ????
         int randSpawn_1 = Random.Range(0, spawnPoints.Length);
         int randSpawn_2 = Random.Range(0, spawnPoints.Length);
-
-        GameObject player1;
-        GameObject player2;
 
         while (randSpawn_2 == randSpawn_1)
         {
@@ -52,7 +66,7 @@ public class MapController : MonoBehaviour
                 player1 = Instantiate(Dao, spawnPoints[randSpawn_1].position, Quaternion.identity);
                 break;
             default:
-                //기본값은 배찌
+                //???????? ????
                 player1 = Instantiate(Bazzi, spawnPoints[randSpawn_1].position, Quaternion.identity);
                 break;
         }
@@ -67,10 +81,63 @@ public class MapController : MonoBehaviour
                 player2 = Instantiate(Dao, spawnPoints[randSpawn_2].position, Quaternion.identity);
                 break;
             default:
-                //기본값은 배찌
+                //???????? ????
                 player2 = Instantiate(Bazzi, spawnPoints[randSpawn_1].position, Quaternion.identity);
                 break;
         }
         player2.GetComponent<Character>().SetP2();
+    }
+
+    public void ShowBubble(int playerNum, int count)
+    {
+        Debug.Log("show bubble");
+        if (playerNum == 1)
+        {
+            for (int i = 0; i < count - 1; i++)
+            {
+                p1Bombs[i].SetActive(true);
+            }
+        } else
+        {
+            for (int i = 0; i < count - 1; i++)
+            {
+                p2Bombs[i].SetActive(true);
+            }
+        }
+    }
+
+    public void ShowItem(int playerNum, int index, Sprite sprite)
+    {
+        Debug.Log("Show Item");
+        if (playerNum == 1)
+        {
+            p1Item[index].GetComponent<Image>().sprite = sprite;
+            p1Item[index].SetActive(true);
+        } else
+        {
+            p2Item[index].GetComponent<Image>().sprite = sprite;
+            p2Item[index].SetActive(true);
+        }
+    }
+
+    public void UseItem(int playerNum, int index)
+    {
+        if (playerNum == 1)
+        {
+            p1Item[0].GetComponent<Image>().sprite = p1Item[1].GetComponent<Image>().sprite;
+            p1Item[1].SetActive(false);
+            if (index == 999)
+            {
+                p1Item[0].SetActive(false);
+            }
+        } else
+        {
+            p2Item[0].GetComponent<Image>().sprite = p2Item[1].GetComponent<Image>().sprite;
+            p2Item[1].SetActive(false);
+            if (index == 999)
+            {
+                p2Item[0].SetActive(false);
+            }
+        }
     }
 }
