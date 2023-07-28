@@ -27,7 +27,7 @@ public class GameOver : MonoBehaviour
             {
                 bazzi.SetActive(false);
             }
-            winText.text = "???? 2 ??!";
+            winText.text = "플레이어 2 승리!";
         } else
         {
             // player 1 wins
@@ -39,7 +39,7 @@ public class GameOver : MonoBehaviour
             {
                 bazzi.SetActive(false);
             }
-            winText.text = "???? 1 ??!";
+            winText.text = "플레이어 1 승리!";
         }
     }
     
