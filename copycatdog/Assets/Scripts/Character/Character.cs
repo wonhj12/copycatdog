@@ -154,6 +154,9 @@ public class Character : MonoBehaviour
 
             UseItem();
         }
+
+        // number of bombs ui
+        mapController.ShowBubble(playerNum, carryBubble);
     }
 
 
@@ -260,9 +263,6 @@ public class Character : MonoBehaviour
         {
             currentBubble += 1;
             carryBubble += 1;
-
-            // UI
-            mapController.ShowBubble(playerNum, carryBubble);
         }
     }
 

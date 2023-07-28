@@ -93,15 +93,21 @@ public class MapController : MonoBehaviour
         Debug.Log("show bubble");
         if (playerNum == 1)
         {
-            for (int i = 0; i < count - 1; i++)
+            for (int i = 0; i < p1Bombs.Length; i++)
             {
-                p1Bombs[i].SetActive(true);
+                if (i < count - 1)
+                    p1Bombs[i].SetActive(true);
+                else
+                    p1Bombs[i].SetActive(false);
             }
         } else
         {
-            for (int i = 0; i < count - 1; i++)
+            for (int i = 0; i < p2Bombs.Length; i++)
             {
-                p2Bombs[i].SetActive(true);
+                if (i < count - 1)
+                    p2Bombs[i].SetActive(true);
+                else
+                    p2Bombs[i].SetActive(false);
             }
         }
     }
